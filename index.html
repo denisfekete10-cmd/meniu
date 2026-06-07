@@ -268,27 +268,27 @@ body.editmode .menu-section.compact .addprodbtn {
 
 .tab-content { display: none; }
 #tab-pizza-clasica:checked ~ #pizza-clasica { display: block; }
-#tab-pizza-clasica:checked ~ #main-nav label[for="tab-pizza-clasica"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-pizza-clasica:checked ~ #main-nav label[for="tab-pizza-clasica"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 #tab-pizza-casa:checked ~ #pizza-casa { display: block; }
-#tab-pizza-casa:checked ~ #main-nav label[for="tab-pizza-casa"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-pizza-casa:checked ~ #main-nav label[for="tab-pizza-casa"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 #tab-pizza-speciala:checked ~ #pizza-speciala { display: block; }
-#tab-pizza-speciala:checked ~ #main-nav label[for="tab-pizza-speciala"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-pizza-speciala:checked ~ #main-nav label[for="tab-pizza-speciala"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 #tab-paste:checked ~ #paste { display: block; }
-#tab-paste:checked ~ #main-nav label[for="tab-paste"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-paste:checked ~ #main-nav label[for="tab-paste"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 #tab-paste-forno:checked ~ #paste-forno { display: block; }
-#tab-paste-forno:checked ~ #main-nav label[for="tab-paste-forno"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-paste-forno:checked ~ #main-nav label[for="tab-paste-forno"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 #tab-supe-salate:checked ~ #supe-salate { display: block; }
-#tab-supe-salate:checked ~ #main-nav label[for="tab-supe-salate"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-supe-salate:checked ~ #main-nav label[for="tab-supe-salate"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 #tab-fructe-mare:checked ~ #fructe-mare { display: block; }
-#tab-fructe-mare:checked ~ #main-nav label[for="tab-fructe-mare"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-fructe-mare:checked ~ #main-nav label[for="tab-fructe-mare"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 #tab-crispy:checked ~ #crispy { display: block; }
-#tab-crispy:checked ~ #main-nav label[for="tab-crispy"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-crispy:checked ~ #main-nav label[for="tab-crispy"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 #tab-desert:checked ~ #desert { display: block; }
-#tab-desert:checked ~ #main-nav label[for="tab-desert"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-desert:checked ~ #main-nav label[for="tab-desert"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 #tab-extras:checked ~ #extras { display: block; }
-#tab-extras:checked ~ #main-nav label[for="tab-extras"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-extras:checked ~ #main-nav label[for="tab-extras"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 #tab-alergeni:checked ~ #alergeni { display: block; }
-#tab-alergeni:checked ~ #main-nav label[for="tab-alergeni"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-alergeni:checked ~ #main-nav label[for="tab-alergeni"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 
 .new-circle {
   width: 34px; height: 34px;
@@ -319,6 +319,7 @@ body.editmode .menu-section.compact .addprodbtn {
   position: sticky;
   top: 46px;
   z-index: 90;
+  margin-top: 0 !important;
 }
 .filter-bar-wrap::-webkit-scrollbar { display: none; }
 .filter-btn {
@@ -350,36 +351,278 @@ body.editmode .menu-section.compact .addprodbtn {
 .pbadge-hot { background: rgba(255,102,0,.1); color: #b34700; border: 1px solid rgba(255,102,0,.2); }
 .pbadge-top { background: rgba(212,160,23,.12); color: #7a5c00; border: 1px solid rgba(212,160,23,.25); }
 
-/* ── NEW CIRCLE pulse ── */
-@keyframes pulse-once {
-  0%   { box-shadow: 0 0 0 0 rgba(192,24,26,.7); }
-  60%  { box-shadow: 0 0 0 10px rgba(192,24,26,0); }
-  100% { box-shadow: 0 0 0 0 rgba(192,24,26,0); }
+
+
+
+.filter-btn {
+  font-size: 11px !important;
+  padding: 6px 13px !important;
 }
-.new-circle.pulse { animation: pulse-once .8s ease forwards; }
+
+/* ── HOME SCREEN ── */
+#home-screen {
+  position: fixed;
+  inset: 0;
+  background: #1A1009;
+  z-index: 999;
+  overflow-y: auto;
+  transition: opacity .3s ease, transform .3s ease;
+}
+#home-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-12px);
+}
+.home-logo-bar { padding: 40px 20px 20px; text-align: center; }
+.home-logo-bar h1 { font-family: var(--font-title); font-style: italic; font-size: 28px; color: #FDF6E3; margin: 0; letter-spacing: .04em; }
+.home-logo-bar p { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: rgba(253,246,227,.4); margin: 5px 0 0; }
+.home-divider { height: 1px; background: rgba(212,160,23,.2); margin: 0 20px; }
+.home-cats { padding: 18px 16px 40px; display: flex; flex-direction: column; gap: 10px; }
+.home-cat {
+  background: #FDF6E3;
+  border-radius: 12px;
+  padding: 15px 16px;
+  display: flex; align-items: center; gap: 14px;
+  cursor: pointer;
+  transition: transform .15s;
+  position: relative; overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+.home-cat:active { transform: scale(.98); }
+.home-cat::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 12px 0 0 12px; }
+.home-cat-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 20px; }
+.home-cat-info { flex: 1; }
+.home-cat-name { font-family: var(--font-title); font-size: 15px; font-weight: 700; color: #1A1009; line-height: 1.2; }
+.home-cat-sub { font-size: 11px; color: #7a6a5a; margin-top: 2px; }
+.home-cat-arrow { color: #c0c0b0; font-size: 20px; flex-shrink: 0; line-height: 1; }
+.home-badge-new { display: inline-block; background: #C0181A; color: #fff; font-size: 7.5px; font-weight: 800; padding: 2px 5px; border-radius: 10px; margin-left: 5px; vertical-align: middle; letter-spacing: .06em; font-family: var(--font-body); }
+
+
+/* Nav wrap padding */
+#main-nav { padding: 2px 6px !important; }
+
+/* ── NAV PILL STYLE ── */
+nav label.navbtn {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+  padding: 8px 14px !important;
+  margin: 6px 3px !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(212,160,23,.3) !important;
+  border-bottom: 1px solid rgba(212,160,23,.3) !important;
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: .04em !important;
+  text-transform: none !important;
+  color: rgba(253,246,227,.6) !important;
+  background: transparent !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  -webkit-tap-highlight-color: transparent !important;
+  user-select: none !important;
+  transition: background .2s, color .2s, border-color .2s !important;
+}
+nav label.navbtn:hover {
+  color: rgba(253,246,227,.9) !important;
+  border-color: rgba(212,160,23,.6) !important;
+}
+#main-nav { padding: 4px 8px !important; gap: 4px !important; }
+
+/* ── BACK TO HOME BTN ── */
+#back-to-home {
+  position: fixed;
+  bottom: 80px;
+  right: 16px;
+  width: 42px; height: 42px;
+  background: var(--nav-bg);
+  border: 1px solid rgba(212,160,23,.35);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  z-index: 150;
+  font-size: 18px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.3);
+  transition: opacity .2s;
+  -webkit-tap-highlight-color: transparent;
+}
+#back-to-home:active { opacity: .7; }
+
+
+
+
+
+.pbadge-new { background: rgba(192,24,26,.12); color: #C0181A; border: 1px solid rgba(192,24,26,.25); }
+
+/* ── CLOSED POPUP ── */
+#closed-popup {
+  display: none;
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #1A1009;
+  border: 1px solid rgba(212,160,23,.35);
+  border-radius: 18px;
+  padding: 28px 28px 24px;
+  z-index: 999;
+  max-width: 300px;
+  width: 88%;
+  text-align: center;
+  font-family: var(--font-body);
+  box-shadow: 0 8px 40px rgba(0,0,0,.6);
+  animation: popupIn .4s cubic-bezier(.34,1.56,.64,1) both;
+}
+#closed-popup.show { display: block; }
+@keyframes popupIn {
+  from { opacity:0; transform:translate(-50%,-60%); }
+  to   { opacity:1; transform:translate(-50%,-50%); }
+}
+.popup-clock {
+  font-size: 42px;
+  display: inline-block;
+  animation: clockSwing 2s ease-in-out infinite;
+  transform-origin: top center;
+}
+@keyframes clockSwing {
+  0%,100% { transform: rotate(-12deg); }
+  50%      { transform: rotate(12deg); }
+}
+.popup-title {
+  font-family: var(--font-title);
+  font-style: italic;
+  font-size: 20px;
+  color: #FDF6E3;
+  margin: 12px 0 6px;
+}
+.popup-text {
+  font-size: 12px;
+  color: rgba(253,246,227,.6);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.popup-schedule {
+  background: rgba(212,160,23,.1);
+  border: 1px solid rgba(212,160,23,.25);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: rgba(253,246,227,.85);
+  margin-bottom: 16px;
+  text-align: left;
+}
+.popup-schedule div { padding: 3px 0; }
+.popup-schedule .closed-day { color: rgba(253,246,227,.35); text-decoration: line-through; }
+.popup-progress {
+  height: 3px;
+  background: rgba(212,160,23,.2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.popup-progress-bar {
+  height: 100%;
+  background: var(--gold, #D4A017);
+  border-radius: 3px;
+  animation: progressDrain 10s linear forwards;
+}
+@keyframes progressDrain {
+  from { width: 100%; }
+  to   { width: 0%; }
+}
+#popup-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 998;
+}
+#popup-overlay.show { display: block; }
 </style>
 <style id="dynamic-nav-css">
 #tab-categorie-noua:checked ~ #categorie-noua { display:block; }
-#tab-categorie-noua:checked ~ #main-nav label[for="tab-categorie-noua"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-categorie-noua:checked ~ #main-nav label[for="tab-categorie-noua"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 #tab-categorie-noua:checked ~ #categorie-noua { display:block; }
-#tab-categorie-noua:checked ~ #main-nav label[for="tab-categorie-noua"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-categorie-noua:checked ~ #main-nav label[for="tab-categorie-noua"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 #tab-categorie-noua-2:checked ~ #categorie-noua-2 { display:block; }
-#tab-categorie-noua-2:checked ~ #main-nav label[for="tab-categorie-noua-2"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-categorie-noua-2:checked ~ #main-nav label[for="tab-categorie-noua-2"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 #tab-categorie-noua-3:checked ~ #categorie-noua-3 { display:block; }
-#tab-categorie-noua-3:checked ~ #main-nav label[for="tab-categorie-noua-3"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-categorie-noua-3:checked ~ #main-nav label[for="tab-categorie-noua-3"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 #tab-categorie-noua-2:checked ~ #categorie-noua-2 { display:block; }
-#tab-categorie-noua-2:checked ~ #main-nav label[for="tab-categorie-noua-2"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-categorie-noua-2:checked ~ #main-nav label[for="tab-categorie-noua-2"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 #tab-categorie-noua-3:checked ~ #categorie-noua-3 { display:block; }
-#tab-categorie-noua-3:checked ~ #main-nav label[for="tab-categorie-noua-3"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-categorie-noua-3:checked ~ #main-nav label[for="tab-categorie-noua-3"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 #tab-categorie-noua-4:checked ~ #categorie-noua-4 { display:block; }
-#tab-categorie-noua-4:checked ~ #main-nav label[for="tab-categorie-noua-4"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-categorie-noua-4:checked ~ #main-nav label[for="tab-categorie-noua-4"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 #tab-cafele:checked ~ #cafele { display:block; }
-#tab-cafele:checked ~ #main-nav label[for="tab-cafele"] { color: var(--gold); border-bottom-color: var(--gold); }</style><style>
+#tab-cafele:checked ~ #main-nav label[for="tab-cafele"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }</style><style>
 #tab-nutri:checked ~ #nutri { display: block; }
-#tab-nutri:checked ~ #main-nav label[for="tab-nutri"] { color: var(--gold); border-bottom-color: var(--gold); }
+#tab-nutri:checked ~ #main-nav label[for="tab-nutri"] { background: #C0181A !important; color: #fff !important; border-radius: 20px !important; border-color: #C0181A !important; }
 </style>
 </head>
-<body class="ep-mode">
+<body class="ep-mode"><div id="home-screen">
+  <div class="home-logo-bar">
+    <h1>Mille Saporri</h1>
+    <p>Pizzerie · Restaurant</p>
+  </div>
+  <div class="home-divider"></div>
+  <div class="home-cats">
+    <div class="home-cat" data-goto="tab-pizza-clasica" style="border:1.5px solid rgba(212,160,23,.3);">
+      <div class="home-cat-icon" style="background:rgba(192,24,26,.1);">🍕</div>
+      <div class="home-cat-info">
+        <div class="home-cat-name">Pizza <span class="home-badge-new">NOU</span></div>
+        <div class="home-cat-sub">Clasică · Specială · Albă</div>
+      </div>
+      <span class="home-cat-arrow">›</span>
+    </div>
+    <div class="home-cat" data-goto="tab-paste" style="border:1.5px solid rgba(212,160,23,.3);">
+      <div class="home-cat-icon" style="background:rgba(212,160,23,.12);">🍝</div>
+      <div class="home-cat-info">
+        <div class="home-cat-name">Paste <span class="home-badge-new">NOU</span></div>
+        <div class="home-cat-sub">Paste · Paste al Forno</div>
+      </div>
+      <span class="home-cat-arrow">›</span>
+    </div>
+    <div class="home-cat" data-goto="tab-supe-salate" style="border:1.5px solid rgba(212,160,23,.3);">
+      <div class="home-cat-icon" style="background:rgba(45,122,45,.1);">🥗</div>
+      <div class="home-cat-info">
+        <div class="home-cat-name">Supe & Salate <span class="home-badge-new">NOU</span></div>
+        <div class="home-cat-sub">Supe cremă · Salate</div>
+      </div>
+      <span class="home-cat-arrow">›</span>
+    </div>
+    <div class="home-cat" data-goto="tab-fructe-mare" style="border:1.5px solid rgba(212,160,23,.3);">
+      <div class="home-cat-icon" style="background:rgba(24,95,165,.1);">🦐</div>
+      <div class="home-cat-info">
+        <div class="home-cat-name">Fructe de Mare <span class="home-badge-new">NOU</span></div>
+        <div class="home-cat-sub">Fritto · Griglia · Mix</div>
+      </div>
+      <span class="home-cat-arrow">›</span>
+    </div>
+    <div class="home-cat" data-goto="tab-crispy">
+      <div class="home-cat-icon" style="background:rgba(179,71,0,.1);">🍗</div>
+      <div class="home-cat-info">
+        <div class="home-cat-name">Crispy</div>
+        <div class="home-cat-sub">Chicken · Cartofi</div>
+      </div>
+      <span class="home-cat-arrow">›</span>
+    </div>
+    <div class="home-cat" data-goto="tab-desert" style="border:1.5px solid rgba(212,160,23,.3);">
+      <div class="home-cat-icon" style="background:rgba(153,53,86,.1);">🍰</div>
+      <div class="home-cat-info">
+        <div class="home-cat-name">Deserturi <span class="home-badge-new">NOU</span></div>
+        <div class="home-cat-sub">Tiramisu · Lava Cake · Melba</div>
+      </div>
+      <span class="home-cat-arrow">›</span>
+    </div>
+    <div class="home-cat" data-goto="tab-categorie-noua">
+      <div class="home-cat-icon" style="background:rgba(15,110,86,.1);">🍹</div>
+      <div class="home-cat-info">
+        <div class="home-cat-name">Băuturi</div>
+        <div class="home-cat-sub">Cocktails · Reci · Calde · Vinuri</div>
+      </div>
+      <span class="home-cat-arrow">›</span>
+    </div>
+  </div>
+</div>
 
 <!-- CSS-only tab switching: no JavaScript needed -->
 <input type="radio" name="menutab" id="tab-cafele" class="tabradio"><input type="radio" name="menutab" id="tab-categorie-noua-4" class="tabradio"><input type="radio" name="menutab" id="tab-categorie-noua-3" class="tabradio"><input type="radio" name="menutab" id="tab-categorie-noua-2" class="tabradio"><input type="radio" name="menutab" id="tab-categorie-noua" class="tabradio"><input type="radio" name="menutab" id="tab-pizza-clasica" checked="" class="tabradio">
@@ -447,7 +690,7 @@ body.editmode .menu-section.compact .addprodbtn {
 
     
 
-    <div class="card" data-tags="veg" data-section="Pizza Clasică">
+    <div class="card" id="p-margherita" data-tags="veg" data-section="Pizza Clasică">
       <div class="card-name">Margherita<span class="alg"><span>1</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div>
       <div class="card-prices">
@@ -456,14 +699,14 @@ body.editmode .menu-section.compact .addprodbtn {
       </div>
     </div>
 
-    <div class="card" data-tags="veg" data-section="Pizza Clasică">
+    <div class="card" id="p-funghi" data-tags="veg" data-section="Pizza Clasică">
       <div class="card-name">Funghi<span class="alg"><span>1</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, ciuperci</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div>
       <div class="card-prices">
         <div class="price-item"><span class="price-label">Standard</span><span class="price-weight">480g</span><span class="price-val"><sup>lei</sup>37</span></div>
         <div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div>
       </div>
-    </div><div class="card" data-section="Pizza Clasică">
+    </div><div class="card" id="p-prosciutto" data-section="Pizza Clasică">
       <div class="card-name">Prosciutto<span class="alg"><span>1</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, șuncă</p>
       <div class="card-prices">
@@ -472,7 +715,7 @@ body.editmode .menu-section.compact .addprodbtn {
       </div>
     </div>
 
-    <div class="card" data-section="Pizza Clasică">
+    <div class="card" id="p-prosciutto-funghi" data-section="Pizza Clasică">
       <div class="card-name">Prosciutto Funghi<span class="alg"><span>1</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, șuncă, ciuperci</p>
       <div class="card-prices">
@@ -481,18 +724,18 @@ body.editmode .menu-section.compact .addprodbtn {
       </div>
     </div>
 
-    <div class="card" data-tags="new veg" data-section="Pizza Clasică">
+    <div class="card" id="p-primavera" data-tags="new veg" data-section="Pizza Clasică">
       <div class="card-name">Primavera<span class="alg"><span>1</span><span>7</span></span></div>
-      <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, fior di latte, roșii, rucola, ulei de măsline, busuioc</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div>
+      <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, fior di latte, roșii, rucola, ulei de măsline, busuioc</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div>
       <div class="card-prices">
         <div class="price-item"><span class="price-label">Standard</span><span class="price-weight">580g</span><span class="price-val"><sup>lei</sup>45</span></div>
         <div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div>
-      <div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div>
+      </div>
     </div>
 
     
 
-    <div class="card" data-section="Pizza Clasică">
+    <div class="card" id="p-tonno-cipola" data-section="Pizza Clasică">
       <div class="card-name">Tonno Cipola<span class="alg"><span>1</span><span>4</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, ton, ceapă</p>
       <div class="card-prices">
@@ -503,7 +746,7 @@ body.editmode .menu-section.compact .addprodbtn {
 
     
 
-  <div class="card" data-tags="veg" data-section="Pizza Clasică"><div class="card-name">Quattro Formagi<div><span class="alg"><span>1</span><span>7</span></span></div></div><p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, gorgonzola, brie, parmezan</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight"><span style="letter-spacing: 0.65px;">450g</span></span><span class="price-val"><sup>lei</sup>47</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div></div></div></div>
+  <div class="card" id="p-quattro-formagi" data-tags="veg" data-section="Pizza Clasică"><div class="card-name">Quattro Formagi<div><span class="alg"><span>1</span><span>7</span></span></div></div><p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, gorgonzola, brie, parmezan</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight"><span style="letter-spacing: 0.65px;">450g</span></span><span class="price-val"><sup>lei</sup>47</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div></div></div></div>
 </section>
 
 
@@ -514,12 +757,18 @@ body.editmode .menu-section.compact .addprodbtn {
     <span class="contact-text">0751 380 867</span>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-    <span class="contact-text">@millesaporri</span>
+    <a href="https://www.instagram.com/millesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+    <span class="contact-text">@millesaporri</span></a>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-    <span class="contact-text">Pizzeria mille saporri</span>
+    <a href="https://www.facebook.com/pizzeriamillesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+    <span class="contact-text">Pizzeria mille saporri</span></a>
+  </div>
+  <div class="contact-line">
+    <a href="https://maps.app.goo.gl/WQi1W9qjx2qVkQv48" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+      <span class="contact-text">Vezi pe hartă</span>
+    </a>
   </div>
   <p class="tagline">Preparate cu pasiune · Gust autentic italian</p>
 </footer>
@@ -534,7 +783,7 @@ body.editmode .menu-section.compact .addprodbtn {
   <div class="section-banner" style="height: 400px;"><img class="banner-img" src="https://i.imgur.com/1M0YOxf.jpg" alt="Pizza della Casa" data-epid="Pizza della Casa" style="object-position: 49% 25%; transform: scale(1); transform-origin: 49% 25%; height: 420px;"></div>
   <div class="pizza-grid">
 
-    <div class="card" data-section="Pizza Clasică">
+    <div class="card" id="p-pollo" data-section="Pizza Clasică">
       <div class="card-name">Pollo<span class="alg"><span>1</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, piept de pui, usturoi + sos de usturoi</p>
       <div class="card-prices">
@@ -543,7 +792,7 @@ body.editmode .menu-section.compact .addprodbtn {
       </div>
     </div>
 
-    <div class="card" data-section="Pizza Clasică">
+    <div class="card" id="p-capricioasa" data-section="Pizza Clasică">
       <div class="card-name">Capricioasa<span class="alg"><span>1</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, șuncă, ciuperci, ardei, măsline</p>
       <div class="card-prices">
@@ -552,7 +801,7 @@ body.editmode .menu-section.compact .addprodbtn {
       </div>
     </div>
 
-    <div class="card" data-tags="top" data-section="Pizza Clasică">
+    <div class="card" id="p-quattro-stagioni" data-tags="top" data-section="Pizza Clasică">
       <div class="card-name">Quattro Stagioni<span class="alg"><span>1</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, șuncă, salam, ciuperci, anghinare, ardei</p><div class="prod-badges"><span class="pbadge pbadge-top">⭐ Recomandat</span></div>
       <div class="card-prices">
@@ -561,7 +810,7 @@ body.editmode .menu-section.compact .addprodbtn {
       </div>
     </div>
 
-    <div class="card" data-tags="veg" data-section="Pizza Clasică">
+    <div class="card" id="p-verdure" data-tags="veg" data-section="Pizza Clasică">
       <div class="card-name">Verdure<span class="alg"><span>1</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, vinete, zucchini, broccoli, ardei</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div>
       <div class="card-prices">
@@ -570,7 +819,7 @@ body.editmode .menu-section.compact .addprodbtn {
       </div>
     </div>
 
-    <div class="card" data-tags="hot" data-section="Pizza Clasică">
+    <div class="card" id="p-incendiara" data-tags="hot" data-section="Pizza Clasică">
       <div class="card-name">Incendiara<span class="alg"><span>1</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, salam picant, ceapă, peperoncino</p><div class="prod-badges"><span class="pbadge pbadge-hot">🌶 Picant</span></div>
       <div class="card-prices">
@@ -579,7 +828,7 @@ body.editmode .menu-section.compact .addprodbtn {
       </div>
     </div>
 
-    <div class="card" data-tags="hot" data-section="Pizza Clasică">
+    <div class="card" id="p-mexicana" data-tags="hot" data-section="Pizza Clasică">
       <div class="card-name">Mexicana<span class="alg"><span>1</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, salam picant, bacon, porumb, ceapă, peperoncino</p><div class="prod-badges"><span class="pbadge pbadge-hot">🌶 Picant</span></div>
       <div class="card-prices">
@@ -588,7 +837,7 @@ body.editmode .menu-section.compact .addprodbtn {
       </div>
     </div>
 
-    <div class="card" data-section="Pizza Clasică">
+    <div class="card" id="p-rustica" data-section="Pizza Clasică">
       <div class="card-name">Rustica<span class="alg"><span>1</span><span>3</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, cabanos, bacon, ceapă, ardei, ou</p>
       <div class="card-prices">
@@ -597,7 +846,7 @@ body.editmode .menu-section.compact .addprodbtn {
       </div>
     </div>
 
-    <div class="card" data-section="Pizza Clasică">
+    <div class="card" id="p-expres" data-section="Pizza Clasică">
       <div class="card-name">Expres<span class="alg"><span>1</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, șuncă, bacon, piept de pui, ciuperci, ardei, măsline</p>
       <div class="card-prices">
@@ -617,12 +866,18 @@ body.editmode .menu-section.compact .addprodbtn {
     <span class="contact-text">0751 380 867</span>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-    <span class="contact-text">@millesaporri</span>
+    <a href="https://www.instagram.com/millesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+    <span class="contact-text">@millesaporri</span></a>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-    <span class="contact-text">Pizzeria mille saporri</span>
+    <a href="https://www.facebook.com/pizzeriamillesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+    <span class="contact-text">Pizzeria mille saporri</span></a>
+  </div>
+  <div class="contact-line">
+    <a href="https://maps.app.goo.gl/WQi1W9qjx2qVkQv48" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+      <span class="contact-text">Vezi pe hartă</span>
+    </a>
   </div>
   <p class="tagline">Preparate cu pasiune · Gust autentic italian</p>
 </footer>
@@ -639,7 +894,7 @@ body.editmode .menu-section.compact .addprodbtn {
 
     
 
-    <div class="card" data-tags="veg" data-section="Pizza Specială">
+    <div class="card" id="p-porcini" data-tags="veg" data-section="Pizza Specială">
       <div class="card-name">Porcini<div><span class="alg"><span>1</span><span>7</span></span></div></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, ciuperci hribi, ciuperci champignon</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div>
       <div class="card-prices">
@@ -650,7 +905,7 @@ body.editmode .menu-section.compact .addprodbtn {
 
     
 
-    <div class="card" data-tags="top" data-section="Pizza Specială">
+    <div class="card" id="p-mille-saporri" data-tags="top" data-section="Pizza Specială">
       <div class="card-name">Mille Saporri<span class="alg"><span>1</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, șuncă cu ciuperci, salam cu ardei, piept de pui cu usturoi, bacon cu ceapă (împărțită în 4)</p><div class="prod-badges"><span class="pbadge pbadge-top">⭐ Recomandat</span></div>
       <div class="card-prices">
@@ -659,7 +914,7 @@ body.editmode .menu-section.compact .addprodbtn {
       </div>
     </div>
 
-    <div class="card" data-section="Pizza Specială"><div class="card-name">Boungustaio&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="alg"><span>1</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, brie, ciuperci hribi, vinete</p><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight"><span style="letter-spacing: 0.65px;">580g</span></span><span class="price-val"><sup>lei</sup>48</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div></div></div><div class="card" data-section="Pizza Specială">
+    <div class="card" id="p-boungustaio-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp" data-section="Pizza Specială"><div class="card-name">Boungustaio&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="alg"><span>1</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, brie, ciuperci hribi, vinete</p><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight"><span style="letter-spacing: 0.65px;">580g</span></span><span class="price-val"><sup>lei</sup>48</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div></div></div><div class="card" id="p-insula-cu-vulcani" data-section="Pizza Specială">
       <div class="card-name">Insula cu Vulcani<div><span class="alg"><span>1</span><span>7</span></span></div></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, margini umplute cu mozzarella, broccoli, șuncă, ciuperci, ceapă</p>
       <div class="card-prices">
@@ -668,7 +923,7 @@ body.editmode .menu-section.compact .addprodbtn {
       </div>
     </div>
 
-    <div class="card" data-section="Pizza Specială">
+    <div class="card" id="p-star" data-section="Pizza Specială">
       <div class="card-name">Star<span class="alg"><span>1</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, șuncă, salam, cartofi prăjiți</p>
       <div class="card-prices">
@@ -677,7 +932,7 @@ body.editmode .menu-section.compact .addprodbtn {
       </div>
     </div>
 
-    <div class="card" data-section="Pizza Specială">
+    <div class="card" id="p-gola-golosa" data-section="Pizza Specială">
       <div class="card-name">Gola Golosa<span class="alg"><span>1</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, bacon, ciuperci hribi, usturoi, peperoncino</p>
       <div class="card-prices">
@@ -688,7 +943,7 @@ body.editmode .menu-section.compact .addprodbtn {
 
     
 
-    <div class="card" data-section="Pizza Specială">
+    <div class="card" id="p-frutti-di-mare" data-section="Pizza Specială">
       <div class="card-name">Frutti di Mare<span class="alg"><span>1</span><span>2</span><span>4</span><span>7</span><span>14</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, mixt fructe de mare, usturoi, pătrunjel verde</p>
       <div class="card-prices">
@@ -697,7 +952,7 @@ body.editmode .menu-section.compact .addprodbtn {
       </div>
     </div>
 
-    <div class="card" data-section="Pizza Specială">
+    <div class="card" id="p-parma" data-section="Pizza Specială">
       <div class="card-name">Parma<span class="alg"><span>1</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella, prosciutto crudo, rucola, parmezan, ulei de măsline</p>
       <div class="card-prices">
@@ -706,7 +961,7 @@ body.editmode .menu-section.compact .addprodbtn {
       </div>
     </div>
 
-  <div class="card" data-tags="new hot top" data-section="Pizza Specială"><div class="card-name">Dolce Piccante<span class="alg"><span>1</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella,&nbsp;spianata piccante, fior di latte, hot honey</p><div class="prod-badges"><span class="pbadge pbadge-hot">🌶 Picant</span><span class="pbadge pbadge-top">⭐ Recomandat</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight">580g</span><span class="price-val"><sup>lei</sup>48</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div><div class="card" data-tags="new" data-section="Pizza Specială"><div class="card-name">Burrata e Prosciutto<span class="alg"><span>1</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Blat de pizza, sos de roșii, mozzarella, prosciutto crudo, burrata, rucola, ulei de măsline</p><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight">580g</span><span class="price-val"><sup>lei</sup>60</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div></div>
+  <div class="card" id="p-dolce-piccante" data-tags="new hot top" data-section="Pizza Specială"><div class="card-name">Dolce Piccante<span class="alg"><span>1</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Blat pizza, sos de roșii, mozzarella,&nbsp;spianata piccante, fior di latte, hot honey</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span><span class="pbadge pbadge-hot">🌶 Picant</span><span class="pbadge pbadge-top">⭐ Recomandat</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight">580g</span><span class="price-val"><sup>lei</sup>48</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div></div></div><div class="card" id="p-burrata-e-prosciutto" data-tags="new" data-section="Pizza Specială"><div class="card-name">Burrata e Prosciutto<span class="alg"><span>1</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Blat de pizza, sos de roșii, mozzarella, prosciutto crudo, burrata, rucola, ulei de măsline</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight">580g</span><span class="price-val"><sup>lei</sup>60</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div></div></div></div>
 <div class="pizza-grid"></div></section>
 
 
@@ -717,12 +972,18 @@ body.editmode .menu-section.compact .addprodbtn {
     <span class="contact-text">0751 380 867</span>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-    <span class="contact-text">@millesaporri</span>
+    <a href="https://www.instagram.com/millesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+    <span class="contact-text">@millesaporri</span></a>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-    <span class="contact-text">Pizzeria mille saporri</span>
+    <a href="https://www.facebook.com/pizzeriamillesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+    <span class="contact-text">Pizzeria mille saporri</span></a>
+  </div>
+  <div class="contact-line">
+    <a href="https://maps.app.goo.gl/WQi1W9qjx2qVkQv48" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+      <span class="contact-text">Vezi pe hartă</span>
+    </a>
   </div>
   <p class="tagline">Preparate cu pasiune · Gust autentic italian</p>
 </footer>
@@ -738,74 +999,74 @@ body.editmode .menu-section.compact .addprodbtn {
 
   <div class="subsection-title">Sos Roșu</div>
   <div class="pizza-grid">
-    <div class="card" data-tags="veg" data-section="Paste">
+    <div class="card" id="p-spaghetti-napoli" data-tags="veg" data-section="Paste">
       <div class="card-name">Spaghetti Napoli<div><span class="alg"><span>1</span><span>7</span><span>9</span></span></div></div>
       <p class="card-ing" data-has-text="1">Sos de roșii de casă, parmezan</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">400g</span><span class="price-val"><sup>lei</sup>38</span></div></div>
     </div>
-    <div class="card" data-section="Paste">
+    <div class="card" id="p-spaghetti-bolognese" data-section="Paste">
       <div class="card-name">Spaghetti Bolognese<span class="alg"><span>1</span><span>7</span><span>9</span></span></div>
       <p class="card-ing" data-has-text="1">Sos ragu cu carne de vită, parmezan</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>45</span></div></div>
     </div>
-    <div class="card" data-tags="hot veg" data-section="Paste">
+    <div class="card" id="p-penne-alla-arrabiata" data-tags="hot veg" data-section="Paste">
       <div class="card-name">Penne alla Arrabiata<span class="alg"><span>1</span><span>7</span><span>9</span></span></div>
       <p class="card-ing" data-has-text="1">Sos de roșii de casă, usturoi, peperoncino, parmezan</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span><span class="pbadge pbadge-hot">🌶 Picant</span></div>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">400g</span><span class="price-val"><sup>lei</sup>40</span></div></div>
     </div>
-    <div class="card" data-section="Paste">
+    <div class="card" id="p-spaghetti-con-tonno" data-section="Paste">
       <div class="card-name">Spaghetti con Tonno<span class="alg"><span>1</span><span>4</span><span>7</span><span>9</span></span></div>
       <p class="card-ing" data-has-text="1">Sos de roșii de casă, ton, busuioc, parmezan</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>45</span></div></div>
     </div>
-    <div class="card" data-section="Paste">
+    <div class="card" id="p-penne-pasticciati" data-section="Paste">
       <div class="card-name">Penne Pasticciati<span class="alg"><span>1</span><span>7</span><span>9</span></span></div>
       <p class="card-ing" data-has-text="1">Sos ragu cu carne de vită, șuncă,&nbsp;<span style="background-color: rgb(253, 246, 227);">gran cucina</span>, parmezan</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>45</span></div></div>
     </div>
-  <div class="card" data-tags="new top" data-section="Paste"><div class="card-name">Penne alla Burrata<span class="alg"><span>1</span><span>7</span><span>9</span></span></div><p class="card-ing" data-has-text="1">Sos napoli, burrata, busuioc</p><div class="prod-badges"><span class="pbadge pbadge-top">⭐ Recomandat</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>55</span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div></div>
+  <div class="card" id="p-penne-alla-burrata" data-tags="new top" data-section="Paste"><div class="card-name">Penne alla Burrata<span class="alg"><span>1</span><span>7</span><span>9</span></span></div><p class="card-ing" data-has-text="1">Sos napoli, burrata, busuioc</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span><span class="pbadge pbadge-top">⭐ Recomandat</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>55</span></div></div></div></div>
 
   <div class="subsection-title">Sos Alb &amp; Cremă</div>
   <div class="pizza-grid">
-    <div class="card" data-section="Paste">
+    <div class="card" id="p-spaghetti-carbonara-cremosa" data-section="Paste">
       <div class="card-name">Spaghetti Carbonara Cremosa<span class="alg"><span>1</span><span>3</span><span>6</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Sos alb&nbsp;<span style="background-color: rgb(253, 246, 227);">gran cucina</span>, bacon, ou, parmezan</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>50</span></div></div>
     </div>
-    <div class="card" data-tags="veg" data-section="Paste">
+    <div class="card" id="p-tagliatelle-quattro-formagi" data-tags="veg" data-section="Paste">
       <div class="card-name">Tagliatelle Quattro Formagi<span class="alg"><span>1</span><span>6</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Sos alb&nbsp;<span style="background-color: rgb(253, 246, 227);">gran cucina</span>, gorgonzola, brie, mozzarella, unt, parmezan</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">430g</span><span class="price-val"><sup>lei</sup>52</span></div></div>
     </div>
-    <div class="card" data-section="Paste">
+    <div class="card" id="p-penne-spinaci-e-pollo" data-section="Paste">
       <div class="card-name">Penne Spinaci e Pollo<span class="alg"><span>1</span><span>6</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Sos alb&nbsp;<span style="background-color: rgb(253, 246, 227);">gran cucina</span>, piept de pui, spanac, bacon, usturoi, parmezan</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>50</span></div></div>
     </div>
     
-    <div class="card" data-section="Paste">
+    <div class="card" id="p-tagliatelle-con-tonno-e-brocoli" data-section="Paste">
       <div class="card-name">Tagliatelle con Tonno e Brocoli<span class="alg"><span>1</span><span>4</span><span>6</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Sos alb&nbsp;<span style="background-color: rgb(253, 246, 227);">gran cucina</span>, ceapă, ton, broccoli, parmezan</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>52</span></div></div>
     </div>
     
-  <div class="card" data-tags="new top veg" data-section="Paste"><div class="card-name">Tagliatelle al Tartufo<span class="alg"><span>1</span><span>6</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Sos alb gran cucina, ciuperci, cremă de trufă, trufă de vară felii</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span><span class="pbadge pbadge-top">⭐ Recomandat</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>60</span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div><div class="card" data-tags="new hot" data-section="Paste"><div class="card-name">Tagliatelle Dolce Piccante<span class="alg"><span>1</span><span>6</span><span>7</span><span>8</span></span></div><p class="card-ing" data-has-text="1">Sos alb gran cucina, gorgonzola, brie, ricotta, nuci, parmezan, hot honey</p><div class="prod-badges"><span class="pbadge pbadge-hot">🌶 Picant</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>55</span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div><div class="card" data-tags="new" data-section="Paste"><div class="card-name">Tagliatelle al Salmone<span class="alg"><span>1</span><span>4</span><span>6</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Sos alb gran cucina, somon fume, ceapă, pătrunjel, lămâie&nbsp;</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>55</span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div></div>
+  <div class="card" id="p-tagliatelle-al-tartufo" data-tags="new top veg" data-section="Paste"><div class="card-name">Tagliatelle al Tartufo<span class="alg"><span>1</span><span>6</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Sos alb gran cucina, ciuperci, cremă de trufă, trufă de vară felii</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span><span class="pbadge pbadge-veg">🌿 Vegetarian</span><span class="pbadge pbadge-top">⭐ Recomandat</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>60</span></div></div></div><div class="card" id="p-tagliatelle-dolce-piccante" data-tags="new hot" data-section="Paste"><div class="card-name">Tagliatelle Dolce Piccante<span class="alg"><span>1</span><span>6</span><span>7</span><span>8</span></span></div><p class="card-ing" data-has-text="1">Sos alb gran cucina, gorgonzola, brie, ricotta, nuci, parmezan, hot honey</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span><span class="pbadge pbadge-hot">🌶 Picant</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>55</span></div></div></div><div class="card" id="p-tagliatelle-al-salmone" data-tags="new" data-section="Paste"><div class="card-name">Tagliatelle al Salmone<span class="alg"><span>1</span><span>4</span><span>6</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Sos alb gran cucina, somon fume, ceapă, pătrunjel, lămâie&nbsp;</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>55</span></div></div></div></div>
 
   <div class="subsection-title">Fructe de Mare</div>
   <div class="pizza-grid">
-    <div class="card" data-section="Paste">
+    <div class="card" id="p-spaghetti-gamberetti" data-section="Paste">
       <div class="card-name">Spaghetti Gamberetti<span class="alg"><span>1</span><span>2</span></span></div>
       <p class="card-ing" data-has-text="1">Roșii cherry, creveți, usturoi, vin</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">380g</span><span class="price-val"><sup>lei</sup>58</span></div></div>
     </div>
-    <div class="card" data-section="Paste">
+    <div class="card" id="p-spaghetti-frutti-di-mare" data-section="Paste">
       <div class="card-name">Spaghetti Frutti di Mare<span class="alg"><span>1</span><span>2</span><span>14</span></span></div>
       <p class="card-ing" data-has-text="1">Roșii cherry, creveți, calamar, vongole, vin, usturoi, pătrunjel, unt</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">380g</span><span class="price-val"><sup>lei</sup>58</span></div></div>
     </div>
-  <div class="card" data-section="Paste"><div class="card-name">Tagliatelle Gamberetti e Zucchine<span class="alg"><span>1</span><span>2</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Sos alb&nbsp;<span style="background-color: rgb(253, 246, 227);">gran cucina</span>, creveți, zucchini, usturoi, parmezan</p><div class="card-prices"><div class="price-item"><span class="price-label"><span style="letter-spacing: 1.3px;">Porție</span></span><span class="price-weight"><span style="letter-spacing: 0.65px;">480g</span></span><span class="price-val"><sup>lei</sup>60</span></div></div></div></div>
+  <div class="card" id="p-tagliatelle-gamberetti-e-zucchine" data-section="Paste"><div class="card-name">Tagliatelle Gamberetti e Zucchine<span class="alg"><span>1</span><span>2</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Sos alb&nbsp;<span style="background-color: rgb(253, 246, 227);">gran cucina</span>, creveți, zucchini, usturoi, parmezan</p><div class="card-prices"><div class="price-item"><span class="price-label"><span style="letter-spacing: 1.3px;">Porție</span></span><span class="price-weight"><span style="letter-spacing: 0.65px;">480g</span></span><span class="price-val"><sup>lei</sup>60</span></div></div></div></div>
 
-<div class="pizza-grid"></div><div class="subsection-title"><span class="subtext">IN BIANCO</span></div><div class="pizza-grid"><div class="card" data-tags="veg" data-section="Paste"><div class="card-name">Tagliatelle Funghi Porcini<span class="alg"><span>1</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Ciuperci hribi, usturoi, unt, pătrunjel, parmezan</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">380g</span><span class="price-val"><sup>lei</sup>52</span></div></div></div><div class="card" data-tags="new top" data-section="Paste"><div class="card-name">Spaghetti Carbonara Classica<span class="alg"><span>1</span><span>3</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Guanciale, ouă, piper negru, pecorino</p><div class="prod-badges"><span class="pbadge pbadge-top">⭐ Recomandat</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">380g</span><span class="price-val"><sup>lei</sup>50</span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div></div></section>
+<div class="pizza-grid"></div><div class="subsection-title"><span class="subtext">IN BIANCO</span></div><div class="pizza-grid"><div class="card" id="p-tagliatelle-funghi-porcini" data-tags="veg" data-section="Paste"><div class="card-name">Tagliatelle Funghi Porcini<span class="alg"><span>1</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Ciuperci hribi, usturoi, unt, pătrunjel, parmezan</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">380g</span><span class="price-val"><sup>lei</sup>52</span></div></div></div><div class="card" id="p-spaghetti-carbonara-classica" data-tags="new top" data-section="Paste"><div class="card-name">Spaghetti Carbonara Classica<span class="alg"><span>1</span><span>3</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Guanciale, ouă, piper negru, pecorino</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span><span class="pbadge pbadge-top">⭐ Recomandat</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">380g</span><span class="price-val"><sup>lei</sup>50</span></div></div></div></div></section>
 
 
 <footer class="contact">
@@ -815,12 +1076,18 @@ body.editmode .menu-section.compact .addprodbtn {
     <span class="contact-text">0751 380 867</span>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-    <span class="contact-text">@millesaporri</span>
+    <a href="https://www.instagram.com/millesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+    <span class="contact-text">@millesaporri</span></a>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-    <span class="contact-text">Pizzeria mille saporri</span>
+    <a href="https://www.facebook.com/pizzeriamillesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+    <span class="contact-text">Pizzeria mille saporri</span></a>
+  </div>
+  <div class="contact-line">
+    <a href="https://maps.app.goo.gl/WQi1W9qjx2qVkQv48" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+      <span class="contact-text">Vezi pe hartă</span>
+    </a>
   </div>
   <p class="tagline">Preparate cu pasiune · Gust autentic italian</p>
 </footer>
@@ -835,49 +1102,49 @@ body.editmode .menu-section.compact .addprodbtn {
   <div class="section-banner"><img class="banner-img" src="https://i.imgur.com/J5soDik.jpg" alt="Paste al Forno" data-epid="Paste al Forno" style="object-position:5% 34%;transform:scale(1);transform-origin:5% 34%;height:420px;"></div>
   <div class="pizza-grid">
 
-    <div class="card" data-section="Paste al Forno">
+    <div class="card" id="p-gnocchi-al-panna-al-forno" data-section="Paste al Forno">
       <div class="card-name">Gnocchi al Panna al Forno<span class="alg"><span>1</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Sos alb&nbsp;<span style="background-color: rgb(253, 246, 227);">gran cucina</span>, șuncă, ciuperci, mozzarella, parmezan</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>50</span></div></div>
     </div>
 
-    <div class="card" data-section="Paste al Forno">
+    <div class="card" id="p-gnocchi-al-forno" data-section="Paste al Forno">
       <div class="card-name">Gnocchi al Forno<span class="alg"><span>1</span><span>7</span><span>9</span></span></div>
       <p class="card-ing" data-has-text="1">Sos de roșii de casă, șuncă, ciuperci, mozzarella, parmezan</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>50</span></div></div>
     </div>
 
-    <div class="card" data-section="Paste al Forno">
+    <div class="card" id="p-tortellini-con-panna-al-forno" data-section="Paste al Forno">
       <div class="card-name">Tortellini con Panna al Forno<span class="alg"><span>1</span><span>3</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Sos alb&nbsp;<span style="background-color: rgb(253, 246, 227);">gran cucina</span>, piept de pui, gorgonzola, mozzarella, parmezan</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>50</span></div></div>
     </div>
 
-    <div class="card" data-section="Paste al Forno">
+    <div class="card" id="p-tortellini-al-forno" data-section="Paste al Forno">
       <div class="card-name">Tortellini al Forno<span class="alg"><span>1</span><span>3</span><span>7</span><span>9</span></span></div>
       <p class="card-ing" data-has-text="1">Sos roze, piept de pui, gorgonzola, mozzarella, parmezan</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>50</span></div></div>
     </div>
 
-    <div class="card" data-section="Paste al Forno">
+    <div class="card" id="p-penne-alla-boscaiola-nbsp" data-section="Paste al Forno">
       <div class="card-name">Penne alla Boscaiola&nbsp;<div><span class="alg"><span>1</span><span>7</span></span></div></div>
       <p class="card-ing" data-has-text="1">Sos alb&nbsp;<span style="background-color: rgb(253, 246, 227);">gran cucina</span>, șuncă, ciuperci, mozzarella, parmezan</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>48</span></div></div>
     </div>
 
-    <div class="card" data-section="Paste al Forno">
+    <div class="card" id="p-penne-al-forno" data-section="Paste al Forno">
       <div class="card-name">Penne al Forno<span class="alg"><span>1</span><span>7</span><span>9</span></span></div>
       <p class="card-ing" data-has-text="1">Sos roze, șuncă, bacon, ciuperci, usturoi, mozzarella, parmezan</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">450g</span><span class="price-val"><sup>lei</sup>48</span></div></div>
     </div>
 
-    <div class="card" data-section="Paste al Forno">
+    <div class="card" id="p-lasagna" data-section="Paste al Forno">
       <div class="card-name">Lasagna<span class="alg"><span>1</span><span>3</span><span>7</span><span>9</span></span></div>
       <p class="card-ing" data-has-text="1">Sos ragu cu carne de vită, sos bșamel, mozzarella, parmezan</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">400g</span><span class="price-val"><sup>lei</sup>55</span></div></div>
     </div>
 
-    <div class="card" data-tags="top veg" data-section="Paste al Forno">
+    <div class="card" id="p-parmigiana-focaccia" data-tags="top veg" data-section="Paste al Forno">
       <div class="card-name">Parmigiana + Focaccia<span class="alg"><span>1</span><span>7</span><span>9</span></span></div>
       <p class="card-ing" data-has-text="1">Sos de roșii de casă, vinete gratinate, mozzarella, parmezan</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span><span class="pbadge pbadge-top">⭐ Recomandat</span></div>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">380/250g</span><span class="price-val"><sup>lei</sup>55</span></div></div>
@@ -894,12 +1161,18 @@ body.editmode .menu-section.compact .addprodbtn {
     <span class="contact-text">0751 380 867</span>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-    <span class="contact-text">@millesaporri</span>
+    <a href="https://www.instagram.com/millesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+    <span class="contact-text">@millesaporri</span></a>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-    <span class="contact-text">Pizzeria mille saporri</span>
+    <a href="https://www.facebook.com/pizzeriamillesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+    <span class="contact-text">Pizzeria mille saporri</span></a>
+  </div>
+  <div class="contact-line">
+    <a href="https://maps.app.goo.gl/WQi1W9qjx2qVkQv48" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+      <span class="contact-text">Vezi pe hartă</span>
+    </a>
   </div>
   <p class="tagline">Preparate cu pasiune · Gust autentic italian</p>
 </footer>
@@ -916,19 +1189,19 @@ body.editmode .menu-section.compact .addprodbtn {
   <div class="subsection-title">Supă Cremă</div>
   <div class="pizza-grid">
 
-    <div class="card" data-tags="veg" data-section="Supe & Salate">
+    <div class="card" id="p-supa-crema-de-legume" data-tags="veg" data-section="Supe & Salate">
       <div class="card-name">Supă Cremă de Legume<span class="alg"><span>1</span><span>7</span><span>9</span></span></div>
       <p class="card-ing" data-has-text="1">Supă de casă, legume, cartofi, parmezan, crutoane</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">350g</span><span class="price-val"><sup>lei</sup>28</span></div></div>
     </div>
 
-    <div class="card" data-tags="new veg" data-section="Supe & Salate"><div class="card-name">Supă Cremă de Roșii<span class="alg"><span>1</span><span>7</span><span>9</span></span></div><p class="card-ing" data-has-text="1">Supă de casă, roșii, cartofi, parmezan, crutoane</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div><div class="card-prices"><div class="price-item"><span class="price-label"><span style="letter-spacing: 1.3px;">Porție</span></span><span class="price-weight"><span style="letter-spacing: 0.65px;">350g</span></span><span class="price-val"><sup>lei</sup>28</span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div><div class="card" data-tags="veg" data-section="Supe & Salate">
+    <div class="card" id="p-supa-crema-de-rosii" data-tags="new veg" data-section="Supe & Salate"><div class="card-name">Supă Cremă de Roșii<span class="alg"><span>1</span><span>7</span><span>9</span></span></div><p class="card-ing" data-has-text="1">Supă de casă, roșii, cartofi, parmezan, crutoane</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div><div class="card-prices"><div class="price-item"><span class="price-label"><span style="letter-spacing: 1.3px;">Porție</span></span><span class="price-weight"><span style="letter-spacing: 0.65px;">350g</span></span><span class="price-val"><sup>lei</sup>28</span></div></div></div><div class="card" id="p-supa-crema-de-broccoli" data-tags="veg" data-section="Supe & Salate">
       <div class="card-name">Supă Cremă de Broccoli<span class="alg"><span>1</span><span>7</span><span>9</span></span></div>
       <p class="card-ing" data-has-text="1">Supă de casă, broccoli, cartofi, parmezan, crutoane</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div>
       <div class="card-prices"><div class="price-item"><span class="price-label"><span style="letter-spacing: 1.3px;">Porție</span></span><span class="price-weight">350g</span><span class="price-val"><sup>lei</sup>28</span></div></div>
     </div>
 
-    <div class="card" data-tags="veg" data-section="Supe & Salate">
+    <div class="card" id="p-supa-crema-de-ciuperci" data-tags="veg" data-section="Supe & Salate">
       <div class="card-name">Supă Cremă de Ciuperci<span class="alg"><span>1</span><span>7</span><span>9</span></span></div>
       <p class="card-ing" data-has-text="1">Supă de casă, ciuperci, cartofi, parmezan, crutoane</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">350g</span><span class="price-val"><sup>lei</sup>28</span></div></div>
@@ -939,7 +1212,7 @@ body.editmode .menu-section.compact .addprodbtn {
   <div class="subsection-title">Salate</div>
   <div class="pizza-grid">
 
-    <div class="card" data-tags="hot" data-section="Supe & Salate">
+    <div class="card" id="p-salata-mexicana" data-tags="hot" data-section="Supe & Salate">
       <div class="card-name">Salată Mexicana<span class="alg"><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Salată iceberg, rucola, piept de pui, ardei gras, porumb, ceapă, peperoncino, dressing de iaurt</p><div class="prod-badges"><span class="pbadge pbadge-hot">🌶 Picant</span></div>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">350g</span><span class="price-val"><sup>lei</sup>42</span></div></div>
@@ -947,23 +1220,23 @@ body.editmode .menu-section.compact .addprodbtn {
 
     
 
-    <div class="card" data-tags="new" data-section="Supe & Salate">
+    <div class="card" id="p-salata-salmone-e-avocado" data-tags="new" data-section="Supe & Salate">
       <div class="card-name">Salată Salmone e Avocado<span class="alg"><span>3</span><span>4</span></span></div>
-      <p class="card-ing" data-has-text="1">Salată iceberg, avocado, somon afumat, ou poșat, roșii, castraveți, ceapă roșie, dressing de citrice și ulei de măsline</p>
-      <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">350g</span><span class="price-val"><sup>lei</sup>50</span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div>
-    </div><div class="card" data-section="Supe & Salate">
+      <p class="card-ing" data-has-text="1">Salată iceberg, avocado, somon afumat, ou poșat, roșii, castraveți, ceapă roșie, dressing de citrice și ulei de măsline</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span></div>
+      <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">350g</span><span class="price-val"><sup>lei</sup>50</span></div></div>
+    </div><div class="card" id="p-salata-gamberetti" data-section="Supe & Salate">
       <div class="card-name">Salată Gamberetti<span class="alg"><span>2</span></span></div>
       <p class="card-ing" data-has-text="1">Salată iceberg, rucola, morcovi, roșii cherry, creveți trași la tigaie, dressing de citrice și ulei de măsline</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">350g</span><span class="price-val"><sup>lei</sup>50</span></div></div>
     </div>
 
-    <div class="card" data-section="Supe & Salate">
+    <div class="card" id="p-salata-tonno" data-section="Supe & Salate">
       <div class="card-name">Salată Tonno<span class="alg"><span>4</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Salată iceberg, ton, ceapă, porumb, măsline, roșii, dressing de iaurt</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">350g</span><span class="price-val"><sup>lei</sup>45</span></div></div>
     </div>
 
-  <div class="card" data-tags="veg" data-section="Supe & Salate"><div class="card-name">Salată Iceberg<span class="alg"></span></div><p class="card-ing" data-has-text="1">Salată iceberg, lămâie, oțet balsamic, ulei de măsline</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">200g</span><span class="price-val"><sup>lei</sup>20</span></div></div></div><div class="card" data-tags="new veg top" data-section="Supe & Salate"><div class="card-name">Salată Caprese<span class="alg"><span>7</span></span></div><p class="card-ing" data-has-text="1">Burrata, roșii, ceapă, ulei de măsline, oțet balsamic + foccacia</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span><span class="pbadge pbadge-top">⭐ Recomandat</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250/250g</span><span class="price-val"><sup>lei</sup>53</span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div></div>
+  <div class="card" id="p-salata-iceberg" data-tags="veg" data-section="Supe & Salate"><div class="card-name">Salată Iceberg<span class="alg"></span></div><p class="card-ing" data-has-text="1">Salată iceberg, lămâie, oțet balsamic, ulei de măsline</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">200g</span><span class="price-val"><sup>lei</sup>20</span></div></div></div><div class="card" id="p-salata-caprese" data-tags="new veg top" data-section="Supe & Salate"><div class="card-name">Salată Caprese<span class="alg"><span>7</span></span></div><p class="card-ing" data-has-text="1">Burrata, roșii, ceapă, ulei de măsline, oțet balsamic + foccacia</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span><span class="pbadge pbadge-veg">🌿 Vegetarian</span><span class="pbadge pbadge-top">⭐ Recomandat</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250/250g</span><span class="price-val"><sup>lei</sup>53</span></div></div></div></div>
 </section>
 
 
@@ -974,12 +1247,18 @@ body.editmode .menu-section.compact .addprodbtn {
     <span class="contact-text">0751 380 867</span>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-    <span class="contact-text">@millesaporri</span>
+    <a href="https://www.instagram.com/millesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+    <span class="contact-text">@millesaporri</span></a>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-    <span class="contact-text">Pizzeria mille saporri</span>
+    <a href="https://www.facebook.com/pizzeriamillesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+    <span class="contact-text">Pizzeria mille saporri</span></a>
+  </div>
+  <div class="contact-line">
+    <a href="https://maps.app.goo.gl/WQi1W9qjx2qVkQv48" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+      <span class="contact-text">Vezi pe hartă</span>
+    </a>
   </div>
   <p class="tagline">Preparate cu pasiune · Gust autentic italian</p>
 </footer>
@@ -994,11 +1273,11 @@ body.editmode .menu-section.compact .addprodbtn {
   <div class="section-banner" style="height: 400px;"><img class="banner-img" src="https://i.imgur.com/s801DvO.jpg" alt="Fructe de Mare" data-epid="Fructe de Mare" style="object-position:37% 30%;transform:scale(1);transform-origin:37% 30%;height:420px;"></div>
   <div class="pizza-grid">
 
-    <div class="card" data-tags="new" data-section="Fructe de Mare"><div class="card-name">Calamar Fritto<span class="alg"><span>1</span><span>3</span><span>5</span><span>14</span></span></div><p class="card-ing" data-has-text="1">Inele de calamar pane, cartofi pai și sos de maioneză</p><div class="card-prices"><div class="price-item"><span class="price-label"><span style="letter-spacing: 1.3px;">Porție</span></span><span class="price-weight"><span style="letter-spacing: 0.65px;">200/200/80g</span></span><span class="price-val"><sup>lei</sup>60</span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div><div class="card" data-section="Fructe de Mare">
+    <div class="card" id="p-calamar-fritto" data-tags="new" data-section="Fructe de Mare"><div class="card-name">Calamar Fritto<span class="alg"><span>1</span><span>3</span><span>5</span><span>14</span></span></div><p class="card-ing" data-has-text="1">Inele de calamar pane, cartofi pai și sos de maioneză</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span></div><div class="card-prices"><div class="price-item"><span class="price-label"><span style="letter-spacing: 1.3px;">Porție</span></span><span class="price-weight"><span style="letter-spacing: 0.65px;">200/200/80g</span></span><span class="price-val"><sup>lei</sup>60</span></div></div></div><div class="card" id="p-calamar-alla-griglia" data-section="Fructe de Mare">
       <div class="card-name">Calamar alla Griglia<span class="alg"><span>1</span><span>14</span></span></div>
       <p class="card-ing" data-has-text="1">Inele de calamar la grătar, salată asortată și focaccia</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">150/80/250g</span><span class="price-val"><sup>lei</sup>60</span></div></div>
-    </div><div class="card" data-tags="top" data-section="Fructe de Mare">
+    </div><div class="card" id="p-gamberetti-all-aglio" data-tags="top" data-section="Fructe de Mare">
       <div class="card-name">Gamberetti all'Aglio<span class="alg"><span>1</span><span>2</span></span></div>
       <p class="card-ing" data-has-text="1">Creveți trași la tigaie cu usturoi, salată asortată și focaccia fâșii</p><div class="prod-badges"><span class="pbadge pbadge-top">⭐ Recomandat</span></div>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">150/80/250g</span><span class="price-val"><sup>lei</sup>75</span></div></div>
@@ -1006,7 +1285,7 @@ body.editmode .menu-section.compact .addprodbtn {
 
     
 
-    <div class="card" data-section="Fructe de Mare">
+    <div class="card" id="p-gamberetti-alla-griglia" data-section="Fructe de Mare">
       <div class="card-name">Gamberetti alla Griglia<span class="alg"><span>1</span><span>2</span></span></div>
       <p class="card-ing" data-has-text="1">Creveți la grătar, salată asortată și focaccia</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">150/80/250g</span><span class="price-val"><sup>lei</sup>75</span></div></div>
@@ -1014,7 +1293,7 @@ body.editmode .menu-section.compact .addprodbtn {
 
     
 
-  <div class="card" data-tags="new" data-section="Fructe de Mare"><div class="card-name">Fritto Misto di Mare<span class="alg"><span>1</span><span>2</span><span>3</span><span>14</span></span></div><p class="card-ing" data-has-text="1">Creveți, inele de calamar și midii pane, cartofi pai și sos de maioneză</p><div class="card-prices"><div class="price-item"><span class="price-label"><span style="letter-spacing: 1.3px;">Porție</span></span><span class="price-weight"><span style="letter-spacing: 0.65px;">250/200/80g</span></span><span class="price-val"><sup>lei</sup>80</span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div><div class="card" data-section="Fructe de Mare"><div class="card-name">Frutti di Mare alla Griglia<span class="alg"><span>1</span><span>2</span><span>14</span></span></div><p class="card-ing" data-has-text="1">Creveți, calamar și vongole la grătar, salată asortată și focaccia</p><div class="card-prices"><div class="price-item"><span class="price-label"><span style="letter-spacing: 1.3px;">Porție</span></span><span class="price-weight"><span style="letter-spacing: 0.65px;">200/80/250g</span></span><span class="price-val"><sup>lei</sup>80</span></div></div></div></div>
+  <div class="card" id="p-fritto-misto-di-mare" data-tags="new" data-section="Fructe de Mare"><div class="card-name">Fritto Misto di Mare<span class="alg"><span>1</span><span>2</span><span>3</span><span>14</span></span></div><p class="card-ing" data-has-text="1">Creveți, inele de calamar și midii pane, cartofi pai și sos de maioneză</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span></div><div class="card-prices"><div class="price-item"><span class="price-label"><span style="letter-spacing: 1.3px;">Porție</span></span><span class="price-weight"><span style="letter-spacing: 0.65px;">250/200/80g</span></span><span class="price-val"><sup>lei</sup>80</span></div></div></div><div class="card" id="p-frutti-di-mare-alla-griglia" data-section="Fructe de Mare"><div class="card-name">Frutti di Mare alla Griglia<span class="alg"><span>1</span><span>2</span><span>14</span></span></div><p class="card-ing" data-has-text="1">Creveți, calamar și vongole la grătar, salată asortată și focaccia</p><div class="card-prices"><div class="price-item"><span class="price-label"><span style="letter-spacing: 1.3px;">Porție</span></span><span class="price-weight"><span style="letter-spacing: 0.65px;">200/80/250g</span></span><span class="price-val"><sup>lei</sup>80</span></div></div></div></div>
 <div class="pizza-grid"></div></section>
 
 
@@ -1025,12 +1304,18 @@ body.editmode .menu-section.compact .addprodbtn {
     <span class="contact-text">0751 380 867</span>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-    <span class="contact-text">@millesaporri</span>
+    <a href="https://www.instagram.com/millesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+    <span class="contact-text">@millesaporri</span></a>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-    <span class="contact-text">Pizzeria mille saporri</span>
+    <a href="https://www.facebook.com/pizzeriamillesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+    <span class="contact-text">Pizzeria mille saporri</span></a>
+  </div>
+  <div class="contact-line">
+    <a href="https://maps.app.goo.gl/WQi1W9qjx2qVkQv48" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+      <span class="contact-text">Vezi pe hartă</span>
+    </a>
   </div>
   <p class="tagline">Preparate cu pasiune · Gust autentic italian</p>
 </footer>
@@ -1045,7 +1330,7 @@ body.editmode .menu-section.compact .addprodbtn {
   <div class="section-banner" style="height: 400px;"><img class="banner-img" src="https://i.imgur.com/ScnWiyN.jpg" alt="Crispy Chicken" data-epid="Crispy Chicken" style="object-position: 54% 67%; transform: scale(1); transform-origin: 54% 67%; height: 420px;"></div>
   <div class="pizza-grid">
 
-    <div class="card" data-section="Crispy">
+    <div class="card" id="p-crispy-chicken" data-section="Crispy">
       <div class="card-name">Crispy Chicken<span class="alg"><span>1</span><span>3</span><span>6</span><span>10</span></span></div>
       <p class="card-ing" data-has-text="1">6 fâșii de pui, cartofi prăjiți, sos de usturoi</p>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">150/200/80g</span><span class="price-val"><sup>lei</sup>45</span></div></div>
@@ -1055,7 +1340,7 @@ body.editmode .menu-section.compact .addprodbtn {
 
     
 
-    <div class="card" data-tags="veg" data-section="Crispy">
+    <div class="card" id="p-cartofi-prajiti" data-tags="veg" data-section="Crispy">
       <div class="card-name">Cartofi Prăjiți<span class="alg"></span></div>
       <p class="card-ing" data-has-text="1">Cartofi prăjiți crocanți</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">200g</span><span class="price-val"><sup>lei</sup>12</span></div></div>
@@ -1072,12 +1357,18 @@ body.editmode .menu-section.compact .addprodbtn {
     <span class="contact-text">0751 380 867</span>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-    <span class="contact-text">@millesaporri</span>
+    <a href="https://www.instagram.com/millesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+    <span class="contact-text">@millesaporri</span></a>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-    <span class="contact-text">Pizzeria mille saporri</span>
+    <a href="https://www.facebook.com/pizzeriamillesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+    <span class="contact-text">Pizzeria mille saporri</span></a>
+  </div>
+  <div class="contact-line">
+    <a href="https://maps.app.goo.gl/WQi1W9qjx2qVkQv48" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+      <span class="contact-text">Vezi pe hartă</span>
+    </a>
   </div>
   <p class="tagline">Preparate cu pasiune · Gust autentic italian</p>
 </footer>
@@ -1092,25 +1383,25 @@ body.editmode .menu-section.compact .addprodbtn {
   <div class="section-banner" style="height: 400px;"><img class="banner-img" src="https://i.imgur.com/Mc8k1l5.jpg" alt="Desert" data-epid="Desert" style="object-position: 50% 100%; transform: scale(1); transform-origin: 50% 100%; height: 420px;"></div>
   <div class="pizza-grid">
 
-    <div class="card" data-tags="new veg" data-section="Deserturi"><div class="card-name">Papanași cu Nutella și frișcă<span class="alg"><span>1</span><span>3</span><span>7</span><span>8</span></span></div><p class="card-ing" data-has-text="1">Nutella, frișcă, topping caramel sărat, alune</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div><div class="card-prices"><div class="price-item"><span class="price-label"><span style="letter-spacing: 1.3px;">Porție</span></span><span class="price-weight"><span style="letter-spacing: 0.65px;">250g</span></span><span class="price-val"><sup>lei</sup>30</span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div><div class="card" data-tags="veg" data-section="Deserturi">
+    <div class="card" id="p-papanasi-cu-nutella-si-frisca" data-tags="new veg" data-section="Deserturi"><div class="card-name">Papanași cu Nutella și frișcă<span class="alg"><span>1</span><span>3</span><span>7</span><span>8</span></span></div><p class="card-ing" data-has-text="1">Nutella, frișcă, topping caramel sărat, alune</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div><div class="card-prices"><div class="price-item"><span class="price-label"><span style="letter-spacing: 1.3px;">Porție</span></span><span class="price-weight"><span style="letter-spacing: 0.65px;">250g</span></span><span class="price-val"><sup>lei</sup>30</span></div></div></div><div class="card" id="p-papanasi" data-tags="veg" data-section="Deserturi">
       <div class="card-name">Papanași<span class="alg"><span>1</span><span>3</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Dulceață de fructe de pădure, smântână</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250g</span><span class="price-val"><sup>lei</sup>30</span></div></div>
     </div>
 
-    <div class="card" data-tags="top veg" data-section="Deserturi">
+    <div class="card" id="p-tiramisu" data-tags="top veg" data-section="Deserturi">
       <div class="card-name">Tiramisu<span class="alg"><span>1</span><span>3</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Pișscoturi, ouă, amareto, cafea, mascarpone</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span><span class="pbadge pbadge-top">⭐ Recomandat</span></div>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">130g</span><span class="price-val"><sup>lei</sup>30</span></div></div>
     </div>
 
-    <div class="card" data-tags="veg" data-section="Deserturi">
+    <div class="card" id="p-lava-cake" data-tags="veg" data-section="Deserturi">
       <div class="card-name">Lava Cake<span class="alg"><span>1</span><span>3</span><span>7</span></span></div>
       <p class="card-ing" data-has-text="1">Blat de ciocolată, interior fondant, înghețată</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div>
       <div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">120g</span><span class="price-val"><sup>lei</sup>30</span></div></div>
     </div>
 
-  <div class="card" data-tags="new veg" data-section="Deserturi"><div class="card-name">Melba<span class="alg"><span>1</span><span>3</span><span>7</span><span>8</span></span></div><p class="card-ing" data-has-text="1">3 globuri de înghețată mixt, toppping de ciocolata, pișcoturi, nuci caramelizate, frișcă</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div><div class="card-prices"><div class="price-item"><span class="price-label"><span style="letter-spacing: 1.3px;">Porție</span></span><span class="price-weight">200G</span><span class="price-val"><sup>lei</sup>28</span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div><div class="card" data-section="Deserturi"><div class="card-name">Glob înghețată<span class="alg"><span>3</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Ciocolată, vanilie, fructe de pădure</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">50g</span><span class="price-val"><sup>lei</sup>8</span></div></div></div></div>
+  <div class="card" id="p-melba" data-tags="new veg" data-section="Deserturi"><div class="card-name">Melba<span class="alg"><span>1</span><span>3</span><span>7</span><span>8</span></span></div><p class="card-ing" data-has-text="1">3 globuri de înghețată mixt, toppping de ciocolata, pișcoturi, nuci caramelizate, frișcă</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div><div class="card-prices"><div class="price-item"><span class="price-label"><span style="letter-spacing: 1.3px;">Porție</span></span><span class="price-weight">200G</span><span class="price-val"><sup>lei</sup>28</span></div></div></div><div class="card" id="p-glob-inghetata" data-section="Deserturi"><div class="card-name">Glob înghețată<span class="alg"><span>3</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Ciocolată, vanilie, fructe de pădure</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">50g</span><span class="price-val"><sup>lei</sup>8</span></div></div></div></div>
 </section>
 
 
@@ -1121,12 +1412,18 @@ body.editmode .menu-section.compact .addprodbtn {
     <span class="contact-text">0751 380 867</span>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-    <span class="contact-text">@millesaporri</span>
+    <a href="https://www.instagram.com/millesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+    <span class="contact-text">@millesaporri</span></a>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-    <span class="contact-text">Pizzeria mille saporri</span>
+    <a href="https://www.facebook.com/pizzeriamillesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+    <span class="contact-text">Pizzeria mille saporri</span></a>
+  </div>
+  <div class="contact-line">
+    <a href="https://maps.app.goo.gl/WQi1W9qjx2qVkQv48" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+      <span class="contact-text">Vezi pe hartă</span>
+    </a>
   </div>
   <p class="tagline">Preparate cu pasiune · Gust autentic italian</p>
 </footer>
@@ -1201,12 +1498,18 @@ body.editmode .menu-section.compact .addprodbtn {
     <span class="contact-text">0751 380 867</span>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-    <span class="contact-text">@millesaporri</span>
+    <a href="https://www.instagram.com/millesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+    <span class="contact-text">@millesaporri</span></a>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-    <span class="contact-text">Pizzeria mille saporri</span>
+    <a href="https://www.facebook.com/pizzeriamillesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+    <span class="contact-text">Pizzeria mille saporri</span></a>
+  </div>
+  <div class="contact-line">
+    <a href="https://maps.app.goo.gl/WQi1W9qjx2qVkQv48" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+      <span class="contact-text">Vezi pe hartă</span>
+    </a>
   </div>
   <p class="tagline">Preparate cu pasiune · Gust autentic italian</p>
 </footer>
@@ -1239,16 +1542,22 @@ body.editmode .menu-section.compact .addprodbtn {
     <span class="contact-text">0751 380 867</span>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-    <span class="contact-text">@millesaporri</span>
+    <a href="https://www.instagram.com/millesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+    <span class="contact-text">@millesaporri</span></a>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-    <span class="contact-text">Pizzeria mille saporri</span>
+    <a href="https://www.facebook.com/pizzeriamillesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+    <span class="contact-text">Pizzeria mille saporri</span></a>
+  </div>
+  <div class="contact-line">
+    <a href="https://maps.app.goo.gl/WQi1W9qjx2qVkQv48" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+      <span class="contact-text">Vezi pe hartă</span>
+    </a>
   </div>
   <p class="tagline">Preparate cu pasiune · Gust autentic italian</p>
 </footer>
-</div><div id="categorie-noua" class="tab-content"><section class="menu-section compact"><div class="section-header"><h2>VINURI &amp; SPIRTOASE</h2><p><br></p></div><div class="subsection-title"><span class="subtext">VINURI</span></div><div class="section-banner" style="height: 400px;"><img class="banner-img" data-epid="Vinuri (foto)" src="https://i.imgur.com/LtzE2iR.jpg" alt="Vinuri" style="object-position: 69% 57%; transform: scale(1); transform-origin: 69% 57%; height: 420px;"></div><div class="pizza-grid"><div class="card" data-section="Cocktails & Bar"><div class="card-name">Nomad Fetească Regală demisec<span class="alg"><span>12</span></span></div><p class="card-ing"><br></p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">750ml</span><span class="price-val"><sup>lei</sup>70</span></div></div></div><div class="card" data-section="Cocktails & Bar"><div class="card-name">Karakter Chardonnay sec<span class="alg"><span>12</span></span></div><p class="card-ing"><br></p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">750ml</span><span class="price-val"><sup>lei</sup>110</span></div></div></div><div class="card" data-section="Cocktails & Bar"><div class="card-name">Metamorfosis Rosé<span class="alg"><span>12</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">750ml</span><span class="price-val"><sup>lei</sup>70</span></div></div></div><div class="card" data-section="Cocktails & Bar"><div class="card-name">Artisan Fetească Neagră<span class="alg"><span>12</span></span></div><p class="card-ing"><br></p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">750ml</span><span class="price-val"><sup>lei</sup>115</span></div></div></div><div class="card" data-section="Cocktails & Bar"><div class="card-name">Via Marchizului Pinot Noir<span class="alg"><span>12</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">750ml</span><span class="price-val"><sup>lei</sup>135</span></div></div></div><div class="card" data-section="Cocktails & Bar"><div class="card-name">Motiv Prosecco Extra Dry<span class="alg"><span>12</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">750ml</span><span class="price-val"><sup>lei</sup>80</span></div></div></div></div><div class="pizza-grid"></div><div class="subsection-title"><span class="subtext">SPIRTOASE</span></div><div class="pizza-grid"><div class="card" data-section="Cocktails & Bar"><div class="card-name">Vodka<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">50ML</span><span class="price-val"><sup>lei</sup>17</span></div></div></div><div class="card" data-section="Cocktails & Bar"><div class="card-name">Tequila<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">50ML</span><span class="price-val"><sup>lei</sup>22</span></div></div></div><div class="card" data-section="Cocktails & Bar"><div class="card-name">Limoncello<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">50ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" data-section="Cocktails & Bar"><div class="card-name">Jack Daniel's<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">50ML</span><span class="price-val"><sup>lei</sup>25</span></div></div></div><div class="card" data-section="Cocktails & Bar"><div class="card-name">Jidvei<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">50ML</span><span class="price-val"><sup>lei</sup>23</span></div></div></div><div class="card" data-section="Cocktails & Bar"><div class="card-name">Gin<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">50ML</span><span class="price-val"><sup>lei</sup>20</span></div></div></div></div><div class="pizza-grid"></div></section>
+</div><div id="categorie-noua" class="tab-content"><section class="menu-section compact"><div class="section-header"><h2>VINURI &amp; SPIRTOASE</h2><p><br></p></div><div class="subsection-title"><span class="subtext">VINURI</span></div><div class="section-banner" style="height: 400px;"><img class="banner-img" data-epid="Vinuri (foto)" src="https://i.imgur.com/LtzE2iR.jpg" alt="Vinuri" style="object-position: 69% 57%; transform: scale(1); transform-origin: 69% 57%; height: 420px;"></div><div class="pizza-grid"><div class="card" id="p-nomad-feteasca-regala-demisec" data-section="Cocktails & Bar"><div class="card-name">Nomad Fetească Regală demisec<span class="alg"><span>12</span></span></div><p class="card-ing"><br></p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">750ml</span><span class="price-val"><sup>lei</sup>70</span></div></div></div><div class="card" id="p-karakter-chardonnay-sec" data-section="Cocktails & Bar"><div class="card-name">Karakter Chardonnay sec<span class="alg"><span>12</span></span></div><p class="card-ing"><br></p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">750ml</span><span class="price-val"><sup>lei</sup>110</span></div></div></div><div class="card" id="p-metamorfosis-rose" data-section="Cocktails & Bar"><div class="card-name">Metamorfosis Rosé<span class="alg"><span>12</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">750ml</span><span class="price-val"><sup>lei</sup>70</span></div></div></div><div class="card" id="p-artisan-feteasca-neagra" data-section="Cocktails & Bar"><div class="card-name">Artisan Fetească Neagră<span class="alg"><span>12</span></span></div><p class="card-ing"><br></p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">750ml</span><span class="price-val"><sup>lei</sup>115</span></div></div></div><div class="card" id="p-via-marchizului-pinot-noir" data-section="Cocktails & Bar"><div class="card-name">Via Marchizului Pinot Noir<span class="alg"><span>12</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">750ml</span><span class="price-val"><sup>lei</sup>135</span></div></div></div><div class="card" id="p-motiv-prosecco-extra-dry" data-section="Cocktails & Bar"><div class="card-name">Motiv Prosecco Extra Dry<span class="alg"><span>12</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">750ml</span><span class="price-val"><sup>lei</sup>80</span></div></div></div></div><div class="pizza-grid"></div><div class="subsection-title"><span class="subtext">SPIRTOASE</span></div><div class="pizza-grid"><div class="card" id="p-vodka" data-section="Cocktails & Bar"><div class="card-name">Vodka<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">50ML</span><span class="price-val"><sup>lei</sup>17</span></div></div></div><div class="card" id="p-tequila" data-section="Cocktails & Bar"><div class="card-name">Tequila<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">50ML</span><span class="price-val"><sup>lei</sup>22</span></div></div></div><div class="card" id="p-limoncello" data-section="Cocktails & Bar"><div class="card-name">Limoncello<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">50ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" id="p-jack-daniel-s" data-section="Cocktails & Bar"><div class="card-name">Jack Daniel's<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">50ML</span><span class="price-val"><sup>lei</sup>25</span></div></div></div><div class="card" id="p-jidvei" data-section="Cocktails & Bar"><div class="card-name">Jidvei<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">50ML</span><span class="price-val"><sup>lei</sup>23</span></div></div></div><div class="card" id="p-gin" data-section="Cocktails & Bar"><div class="card-name">Gin<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">50ML</span><span class="price-val"><sup>lei</sup>20</span></div></div></div></div><div class="pizza-grid"></div></section>
 
 
 <footer class="contact">
@@ -1258,16 +1567,22 @@ body.editmode .menu-section.compact .addprodbtn {
     <span class="contact-text">0751 380 867</span>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-    <span class="contact-text">@millesaporri</span>
+    <a href="https://www.instagram.com/millesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+    <span class="contact-text">@millesaporri</span></a>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-    <span class="contact-text">Pizzeria mille saporri</span>
+    <a href="https://www.facebook.com/pizzeriamillesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+    <span class="contact-text">Pizzeria mille saporri</span></a>
+  </div>
+  <div class="contact-line">
+    <a href="https://maps.app.goo.gl/WQi1W9qjx2qVkQv48" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+      <span class="contact-text">Vezi pe hartă</span>
+    </a>
   </div>
   <p class="tagline">Preparate cu pasiune · Gust autentic italian</p>
 </footer>
-</div><div id="categorie-noua-2" class="tab-content"><section class="menu-section"><div class="section-header"><h2>COCKTAIL/MOCKTAIL</h2><p><br></p></div><div class="section-banner selected" style="height: 400px;"><img class="banner-img" src="https://i.imgur.com/lRsJKkW.jpg" alt="Categorie nouă" data-epid="Cocktail/Mocktail" style="object-position: 50% 34%; transform: scale(1.4); transform-origin: 50% 34%; height: 320px;"></div><div class="subsection-title"><span class="subtext">Cocktails</span></div><div class="pizza-grid"><div class="card" data-section="Vinuri"><div class="card-name">Aperol Spritz<span class="alg"><span>12</span></span></div><p class="card-ing" data-has-text="1">Proseco, aperol, apă minerală</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">350ml</span></span><span class="price-val"><sup>lei</sup>35</span></div></div></div><div class="card" data-section="Vinuri"><div class="card-name">Hugo<span class="alg"><span>12</span></span></div><p class="card-ing" data-has-text="1">Proseco, sirop de soc, apă minerală, mentă, lime</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">350ml</span></span><span class="price-val"><sup>lei</sup>35</span></div></div></div><div class="card" data-section="Vinuri"><div class="card-name">Gin Tonic<span class="alg"><span>1</span></span></div><p class="card-ing" data-has-text="1">Gin, tonic, lime</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">350ml</span></span><span class="price-val"><sup>lei</sup>32</span></div></div></div><div class="card" data-section="Vinuri"><div class="card-name">Negroni<span class="alg"><span>1</span><span>12</span></span></div><p class="card-ing" data-has-text="1">Gin, campari, vermut roșu</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">200ml</span></span><span class="price-val"><sup>lei</sup>35</span></div></div></div><div class="card" data-section="Vinuri"><div class="card-name">Cosmopolitan</div><p class="card-ing" data-has-text="1">Vodka, triple sec, lime, suc de merișoare</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">200ml</span></span><span class="price-val"><sup>lei</sup>35</span></div></div></div><div class="card" data-section="Vinuri"><div class="card-name">Tequila Sunrise<span class="alg"></span></div><p class="card-ing" data-has-text="1">Tequila, suc de portocale, grenadine</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">350ml</span></span><span class="price-val"><sup>lei</sup>30</span></div></div></div><div class="card" data-section="Vinuri"><div class="card-name">French 75<span class="alg"><span>1</span><span>12</span></span></div><p class="card-ing" data-has-text="1">Gin, proseco, suc de lămâie, sirop de zahăr, coajă de lămâie&nbsp;</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">200ml</span><span class="price-val"><sup>lei</sup>35</span></div></div></div></div><div class="subsection-title"><span class="subtext">Mocktails</span></div><div class="pizza-grid"><div class="card" data-section="Vinuri"><div class="card-name">Shirley Temple</div><p class="card-ing" data-has-text="1">Sprite, grenadine, lime</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">350ml</span></span><span class="price-val"><sup>lei</sup>20</span></div></div></div><div class="card" data-section="Vinuri"><div class="card-name">Virgin Sunrise</div><p class="card-ing" data-has-text="1">Fresh de portocale, grenadine</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">350ml</span></span><span class="price-val"><sup>lei</sup>20</span></div></div></div><div class="card" data-section="Vinuri"><div class="card-name">Virgin Hugo<span class="alg"><span>12</span></span></div><p class="card-ing" data-has-text="1">Sirop de soc, lime, apă minerală, mentă</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">350ml</span></span><span class="price-val"><sup>lei</sup>20</span></div></div></div></div><div class="subsection-title"><span class="subtext">Lemonade / fresh</span></div><div class="pizza-grid"><div class="card" data-section="Vinuri"><div class="card-name">Classic Lemonade</div><p class="card-ing" data-has-text="1">Lămâie, sirop, mentă</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">400ml</span></span><span class="price-val"><sup>lei</sup>16</span></div></div></div><div class="card" data-section="Vinuri"><div class="card-name">Pink Lemonade</div><p class="card-ing" data-has-text="1">Lămâie, sirop spiced red berries,&nbsp;</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">400</span><span style="letter-spacing: 0.65px;">ml</span></span><span class="price-val"><sup>lei</sup>18</span></div></div></div><div class="card" data-section="Vinuri"><div class="card-name">Passion Fruit Lemonade</div><p class="card-ing" data-has-text="1">Lămâie, sirop fructul pasiunii</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">400</span><span style="letter-spacing: 0.65px;">ml</span></span><span class="price-val"><sup>lei</sup>18</span></div></div></div><div class="card" data-section="Vinuri"><div class="card-name">Mango Lemonade</div><p class="card-ing" data-has-text="1">Lămâie, sirop mango</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">400</span><span style="letter-spacing: 0.65px;">ml</span></span><span class="price-val"><sup>lei</sup>18</span></div></div></div><div class="card" data-section="Vinuri"><div class="card-name">Watermelon Lemonade</div><p class="card-ing" data-has-text="1">Lămâie, sirop pepene roșu</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">400</span><span style="letter-spacing: 0.65px;">ml</span></span><span class="price-val"><sup>lei</sup>18</span></div></div></div><div class="card" data-section="Vinuri"><div class="card-name">Pomegranate Lemonade</div><p class="card-ing" data-has-text="1">Lămâie, sirop rodie</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">400</span><span style="letter-spacing: 0.65px;">ml</span></span><span class="price-val"><sup>lei</sup>18</span></div></div></div><div class="card" data-section="Vinuri"><div class="card-name">Fresh de Portocale<span class="alg"></span></div><p class="card-ing" data-has-text="1">Portocale</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">300</span>g</span><span class="price-val"><sup>lei</sup>19</span></div></div></div><div class="card" data-section="Vinuri"><div class="card-name">Fresh de Grapefruit<span class="alg"></span></div><p class="card-ing" data-has-text="1">Grapefruti</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">300g</span><span class="price-val"><sup>lei</sup>19</span></div></div></div><div class="card" data-section="Vinuri"><div class="card-name">Fresh mixt<span class="alg"></span></div><p class="card-ing" data-has-text="1">Portocale si grapefruti</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">300g</span><span class="price-val"><sup>lei</sup>19</span></div></div></div></div></section>
+</div><div id="categorie-noua-2" class="tab-content"><section class="menu-section"><div class="section-header"><h2>COCKTAIL/MOCKTAIL</h2><p><br></p></div><div class="section-banner selected" style="height: 400px;"><img class="banner-img" src="https://i.imgur.com/lRsJKkW.jpg" alt="Categorie nouă" data-epid="Cocktail/Mocktail" style="object-position: 50% 34%; transform: scale(1.4); transform-origin: 50% 34%; height: 320px;"></div><div class="subsection-title"><span class="subtext">Cocktails</span></div><div class="pizza-grid"><div class="card" id="p-aperol-spritz" data-section="Vinuri"><div class="card-name">Aperol Spritz<span class="alg"><span>12</span></span></div><p class="card-ing" data-has-text="1">Proseco, aperol, apă minerală</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">350ml</span></span><span class="price-val"><sup>lei</sup>35</span></div></div></div><div class="card" id="p-hugo" data-section="Vinuri"><div class="card-name">Hugo<span class="alg"><span>12</span></span></div><p class="card-ing" data-has-text="1">Proseco, sirop de soc, apă minerală, mentă, lime</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">350ml</span></span><span class="price-val"><sup>lei</sup>35</span></div></div></div><div class="card" id="p-gin-tonic" data-section="Vinuri"><div class="card-name">Gin Tonic<span class="alg"><span>1</span></span></div><p class="card-ing" data-has-text="1">Gin, tonic, lime</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">350ml</span></span><span class="price-val"><sup>lei</sup>32</span></div></div></div><div class="card" id="p-negroni" data-section="Vinuri"><div class="card-name">Negroni<span class="alg"><span>1</span><span>12</span></span></div><p class="card-ing" data-has-text="1">Gin, campari, vermut roșu</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">200ml</span></span><span class="price-val"><sup>lei</sup>35</span></div></div></div><div class="card" id="p-cosmopolitan" data-section="Vinuri"><div class="card-name">Cosmopolitan</div><p class="card-ing" data-has-text="1">Vodka, triple sec, lime, suc de merișoare</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">200ml</span></span><span class="price-val"><sup>lei</sup>35</span></div></div></div><div class="card" id="p-tequila-sunrise" data-section="Vinuri"><div class="card-name">Tequila Sunrise<span class="alg"></span></div><p class="card-ing" data-has-text="1">Tequila, suc de portocale, grenadine</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">350ml</span></span><span class="price-val"><sup>lei</sup>30</span></div></div></div><div class="card" id="p-french-75" data-section="Vinuri"><div class="card-name">French 75<span class="alg"><span>1</span><span>12</span></span></div><p class="card-ing" data-has-text="1">Gin, proseco, suc de lămâie, sirop de zahăr, coajă de lămâie&nbsp;</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">200ml</span><span class="price-val"><sup>lei</sup>35</span></div></div></div></div><div class="subsection-title"><span class="subtext">Mocktails</span></div><div class="pizza-grid"><div class="card" id="p-shirley-temple" data-section="Vinuri"><div class="card-name">Shirley Temple</div><p class="card-ing" data-has-text="1">Sprite, grenadine, lime</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">350ml</span></span><span class="price-val"><sup>lei</sup>20</span></div></div></div><div class="card" id="p-virgin-sunrise" data-section="Vinuri"><div class="card-name">Virgin Sunrise</div><p class="card-ing" data-has-text="1">Fresh de portocale, grenadine</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">350ml</span></span><span class="price-val"><sup>lei</sup>20</span></div></div></div><div class="card" id="p-virgin-hugo" data-section="Vinuri"><div class="card-name">Virgin Hugo<span class="alg"><span>12</span></span></div><p class="card-ing" data-has-text="1">Sirop de soc, lime, apă minerală, mentă</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">350ml</span></span><span class="price-val"><sup>lei</sup>20</span></div></div></div></div><div class="subsection-title"><span class="subtext">Lemonade / fresh</span></div><div class="pizza-grid"><div class="card" id="p-classic-lemonade" data-section="Vinuri"><div class="card-name">Classic Lemonade</div><p class="card-ing" data-has-text="1">Lămâie, sirop, mentă</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">400ml</span></span><span class="price-val"><sup>lei</sup>16</span></div></div></div><div class="card" id="p-pink-lemonade" data-section="Vinuri"><div class="card-name">Pink Lemonade</div><p class="card-ing" data-has-text="1">Lămâie, sirop spiced red berries,&nbsp;</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">400</span><span style="letter-spacing: 0.65px;">ml</span></span><span class="price-val"><sup>lei</sup>18</span></div></div></div><div class="card" id="p-passion-fruit-lemonade" data-section="Vinuri"><div class="card-name">Passion Fruit Lemonade</div><p class="card-ing" data-has-text="1">Lămâie, sirop fructul pasiunii</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">400</span><span style="letter-spacing: 0.65px;">ml</span></span><span class="price-val"><sup>lei</sup>18</span></div></div></div><div class="card" id="p-mango-lemonade" data-section="Vinuri"><div class="card-name">Mango Lemonade</div><p class="card-ing" data-has-text="1">Lămâie, sirop mango</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">400</span><span style="letter-spacing: 0.65px;">ml</span></span><span class="price-val"><sup>lei</sup>18</span></div></div></div><div class="card" id="p-watermelon-lemonade" data-section="Vinuri"><div class="card-name">Watermelon Lemonade</div><p class="card-ing" data-has-text="1">Lămâie, sirop pepene roșu</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">400</span><span style="letter-spacing: 0.65px;">ml</span></span><span class="price-val"><sup>lei</sup>18</span></div></div></div><div class="card" id="p-pomegranate-lemonade" data-section="Vinuri"><div class="card-name">Pomegranate Lemonade</div><p class="card-ing" data-has-text="1">Lămâie, sirop rodie</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">400</span><span style="letter-spacing: 0.65px;">ml</span></span><span class="price-val"><sup>lei</sup>18</span></div></div></div><div class="card" id="p-fresh-de-portocale" data-section="Vinuri"><div class="card-name">Fresh de Portocale<span class="alg"></span></div><p class="card-ing" data-has-text="1">Portocale</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><span style="letter-spacing: 0.65px;">300</span>g</span><span class="price-val"><sup>lei</sup>19</span></div></div></div><div class="card" id="p-fresh-de-grapefruit" data-section="Vinuri"><div class="card-name">Fresh de Grapefruit<span class="alg"></span></div><p class="card-ing" data-has-text="1">Grapefruti</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">300g</span><span class="price-val"><sup>lei</sup>19</span></div></div></div><div class="card" id="p-fresh-mixt" data-section="Vinuri"><div class="card-name">Fresh mixt<span class="alg"></span></div><p class="card-ing" data-has-text="1">Portocale si grapefruti</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">300g</span><span class="price-val"><sup>lei</sup>19</span></div></div></div></div></section>
 
 
 <footer class="contact">
@@ -1277,18 +1592,24 @@ body.editmode .menu-section.compact .addprodbtn {
     <span class="contact-text">0751 380 867</span>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-    <span class="contact-text">@millesaporri</span>
+    <a href="https://www.instagram.com/millesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+    <span class="contact-text">@millesaporri</span></a>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-    <span class="contact-text">Pizzeria mille saporri</span>
+    <a href="https://www.facebook.com/pizzeriamillesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+    <span class="contact-text">Pizzeria mille saporri</span></a>
+  </div>
+  <div class="contact-line">
+    <a href="https://maps.app.goo.gl/WQi1W9qjx2qVkQv48" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+      <span class="contact-text">Vezi pe hartă</span>
+    </a>
   </div>
   <p class="tagline">Preparate cu pasiune · Gust autentic italian</p>
 </footer>
-</div><div id="categorie-noua-3" class="tab-content"><section class="menu-section"><div class="section-header"><h2>PIZZA ALBĂ</h2><p>32 cm Standard</p></div><div class="section-banner" style="height: 400px;"><img class="banner-img" src="https://i.imgur.com/suI3M4p.jpg" alt="Categorie nouă" data-epid="Pizza Albă" style="object-position: 49% 61%; transform: scale(1); transform-origin: 49% 61%; height: 420px;"></div><div class="pizza-grid"><div class="card" data-tags="new top" data-section="Pizza Albă"><div class="card-name">Pollo e Funghi<span class="alg"><span>1</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Blat pizza, sos de smântână cu usturoi, mozzarella, piept de pui, ciuperci, ceapă</p><div class="prod-badges"><span class="pbadge pbadge-top">⭐ Recomandat</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight">600g</span><span class="price-val"><sup>lei</sup>43</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div><div class="card" data-tags="new" data-section="Pizza Albă"><div class="card-name">Salmone Ricotta<span class="alg"><span>1</span><span>4</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Blat de pizza, sos de smântână cu usturoi, mozzarella, ricotta, spanac, somon fume</p><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight">520g</span><span class="price-val"><sup>lei</sup>55</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div><div class="card" data-tags="new" data-section="Pizza Albă"><div class="card-name">Bianca Carciofi<span class="alg"><span>1</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Blat pizza, sos de smântână cu usturoi, mozzarella, bacon, anghinare, piper</p><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight">550g</span><span class="price-val"><sup>lei</sup>45</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div><div class="card" data-tags="new veg" data-section="Pizza Albă"><div class="card-name">Tartufo Bianca<span class="alg"><span>1</span><span>7</span></span>
+</div><div id="categorie-noua-3" class="tab-content"><section class="menu-section"><div class="section-header"><h2>PIZZA ALBĂ</h2><p>32 cm Standard</p></div><div class="section-banner" style="height: 400px;"><img class="banner-img" src="https://i.imgur.com/suI3M4p.jpg" alt="Categorie nouă" data-epid="Pizza Albă" style="object-position: 49% 61%; transform: scale(1); transform-origin: 49% 61%; height: 420px;"></div><div class="pizza-grid"><div class="card" id="p-pollo-e-funghi" data-tags="new top" data-section="Pizza Albă"><div class="card-name">Pollo e Funghi<span class="alg"><span>1</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Blat pizza, sos de smântână cu usturoi, mozzarella, piept de pui, ciuperci, ceapă</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span><span class="pbadge pbadge-top">⭐ Recomandat</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight">600g</span><span class="price-val"><sup>lei</sup>43</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div></div></div><div class="card" id="p-salmone-ricotta" data-tags="new" data-section="Pizza Albă"><div class="card-name">Salmone Ricotta<span class="alg"><span>1</span><span>4</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Blat de pizza, sos de smântână cu usturoi, mozzarella, ricotta, spanac, somon fume</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight">520g</span><span class="price-val"><sup>lei</sup>55</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div></div></div><div class="card" id="p-bianca-carciofi" data-tags="new" data-section="Pizza Albă"><div class="card-name">Bianca Carciofi<span class="alg"><span>1</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Blat pizza, sos de smântână cu usturoi, mozzarella, bacon, anghinare, piper</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight">550g</span><span class="price-val"><sup>lei</sup>45</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div></div></div><div class="card" id="p-tartufo-bianca" data-tags="new veg" data-section="Pizza Albă"><div class="card-name">Tartufo Bianca<span class="alg"><span>1</span><span>7</span></span>
 
-</div><p class="card-ing" data-has-text="1">Blat pizza, sos de smântână cu usturoi, ciuperci, cremă de trufă, trufă de vară felii, parmezan</p><div class="prod-badges"><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight">500g</span><span class="price-val"><sup>lei</sup>60</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div><div class="card" data-tags="new hot" data-section="Pizza Albă"><div class="card-name">Cinque Saporri<span class="alg"><span>1</span><span>7</span><span>8</span></span></div><p class="card-ing" data-has-text="1">Blat pizza, sos de smântână cu usturoi, mozzarella, gorgonzola, brie, ricotta, nuci, hot honey</p><div class="prod-badges"><span class="pbadge pbadge-hot">🌶 Picant</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight">580g</span><span class="price-val"><sup>lei</sup>49</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div><div class="new-circle"><div class="nc-dot"></div><span class="nc-text">NEW</span></div></div></div></div></section>
+</div><p class="card-ing" data-has-text="1">Blat pizza, sos de smântână cu usturoi, ciuperci, cremă de trufă, trufă de vară felii, parmezan</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span><span class="pbadge pbadge-veg">🌿 Vegetarian</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight">500g</span><span class="price-val"><sup>lei</sup>60</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div></div></div><div class="card" id="p-cinque-saporri" data-tags="new hot" data-section="Pizza Albă"><div class="card-name">Cinque Saporri<span class="alg"><span>1</span><span>7</span><span>8</span></span></div><p class="card-ing" data-has-text="1">Blat pizza, sos de smântână cu usturoi, mozzarella, gorgonzola, brie, ricotta, nuci, hot honey</p><div class="prod-badges"><span class="pbadge pbadge-new">✦ Nou</span><span class="pbadge pbadge-hot">🌶 Picant</span></div><div class="card-prices"><div class="price-item"><span class="price-label">Standard</span><span class="price-weight">580g</span><span class="price-val"><sup>lei</sup>49</span></div><div class="price-item"><span class="price-label"><br></span><span class="price-weight"><br></span><span class="price-val"><br></span></div></div></div></div></section>
 <footer class="contact">
   <span class="contact-label">Contactează-ne</span>
   <div class="contact-line">
@@ -1296,18 +1617,24 @@ body.editmode .menu-section.compact .addprodbtn {
     <span class="contact-text">0751 380 867</span>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-    <span class="contact-text">@millesaporri</span>
+    <a href="https://www.instagram.com/millesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+    <span class="contact-text">@millesaporri</span></a>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-    <span class="contact-text">Pizzeria mille saporri</span>
+    <a href="https://www.facebook.com/pizzeriamillesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+    <span class="contact-text">Pizzeria mille saporri</span></a>
+  </div>
+  <div class="contact-line">
+    <a href="https://maps.app.goo.gl/WQi1W9qjx2qVkQv48" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+      <span class="contact-text">Vezi pe hartă</span>
+    </a>
   </div>
   <p class="tagline">Preparate cu pasiune · Gust autentic italian</p>
 </footer>
-</div><div id="categorie-noua-4" class="tab-content"><section class="menu-section compact"><div class="section-header"><h2>Băuturi Reci</h2><p><br></p></div><div class="section-banner" style="height: 400px;"><img class="banner-img" src="https://i.imgur.com/a4FSBUg.jpg" alt="Categorie nouă" data-epid="Băuturi Reci" style="object-position: 50% 0%; transform: scale(1); transform-origin: 50% 0%; height: 420px;"></div><div class="subsection-title"><span class="subtext">Sucuri</span></div><div class="pizza-grid"><div class="card" data-section="Băuturi"><div class="card-name">Cola<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>13</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Cola zero<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>13</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Fanta<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>13</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Fanta Madness<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>13</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Sprite<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>13</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Schweppes Kinley<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Schweppes Mandarin<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Schweppes Bitter Lemon<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Schweppes Raspberry<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Fuzetea Lemon<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Fuzetea Peach<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Cappy Piersici<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Cappy Portocale Roșii<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div></div><div class="subsection-title"><span class="subtext">Apă</span></div><div class="pizza-grid"><div class="card" data-section="Băuturi"><div class="card-name">Dorna Plată<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">330ml</span><span class="price-val"><sup>lei</sup>10</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Dorna Minerală<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">330ml</span><span class="price-val"><sup>lei</sup>10</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Dorna Plată<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">750ml</span><span class="price-val"><sup>lei</sup>20</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Dorna Minerală<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">750ml</span><span class="price-val"><sup>lei</sup>20</span></div></div></div></div><div class="subsection-title"><span class="subtext">BERE</span></div><div class="pizza-grid"><div class="card" data-section="Băuturi"><div class="card-name">Ursus&nbsp;<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">330ml</span><span class="price-val"><sup>lei</sup>12</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Ursus<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">500ml</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Peroni<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">330ml</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Peroni<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">500ml</span><span class="price-val"><sup>lei</sup>20</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Ursus Cooler Lemon<span class="alg"><span>1</span></span>
+</div><div id="categorie-noua-4" class="tab-content"><section class="menu-section compact"><div class="section-header"><h2>Băuturi Reci</h2><p><br></p></div><div class="section-banner" style="height: 400px;"><img class="banner-img" src="https://i.imgur.com/a4FSBUg.jpg" alt="Categorie nouă" data-epid="Băuturi Reci" style="object-position: 50% 0%; transform: scale(1); transform-origin: 50% 0%; height: 420px;"></div><div class="subsection-title"><span class="subtext">Sucuri</span></div><div class="pizza-grid"><div class="card" id="p-cola" data-section="Băuturi"><div class="card-name">Cola<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>13</span></div></div></div><div class="card" id="p-cola-zero" data-section="Băuturi"><div class="card-name">Cola zero<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>13</span></div></div></div><div class="card" id="p-fanta" data-section="Băuturi"><div class="card-name">Fanta<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>13</span></div></div></div><div class="card" id="p-fanta-madness" data-section="Băuturi"><div class="card-name">Fanta Madness<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>13</span></div></div></div><div class="card" id="p-sprite" data-section="Băuturi"><div class="card-name">Sprite<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>13</span></div></div></div><div class="card" id="p-schweppes-kinley" data-section="Băuturi"><div class="card-name">Schweppes Kinley<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" id="p-schweppes-mandarin" data-section="Băuturi"><div class="card-name">Schweppes Mandarin<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" id="p-schweppes-bitter-lemon" data-section="Băuturi"><div class="card-name">Schweppes Bitter Lemon<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" id="p-schweppes-raspberry" data-section="Băuturi"><div class="card-name">Schweppes Raspberry<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" id="p-fuzetea-lemon" data-section="Băuturi"><div class="card-name">Fuzetea Lemon<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" id="p-fuzetea-peach" data-section="Băuturi"><div class="card-name">Fuzetea Peach<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" id="p-cappy-piersici" data-section="Băuturi"><div class="card-name">Cappy Piersici<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" id="p-cappy-portocale-rosii" data-section="Băuturi"><div class="card-name">Cappy Portocale Roșii<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">250ML</span><span class="price-val"><sup>lei</sup>15</span></div></div></div></div><div class="subsection-title"><span class="subtext">Apă</span></div><div class="pizza-grid"><div class="card" id="p-dorna-plata" data-section="Băuturi"><div class="card-name">Dorna Plată<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">330ml</span><span class="price-val"><sup>lei</sup>10</span></div></div></div><div class="card" id="p-dorna-minerala" data-section="Băuturi"><div class="card-name">Dorna Minerală<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">330ml</span><span class="price-val"><sup>lei</sup>10</span></div></div></div><div class="card" id="p-dorna-plata" data-section="Băuturi"><div class="card-name">Dorna Plată<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">750ml</span><span class="price-val"><sup>lei</sup>20</span></div></div></div><div class="card" id="p-dorna-minerala" data-section="Băuturi"><div class="card-name">Dorna Minerală<span class="alg"></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">750ml</span><span class="price-val"><sup>lei</sup>20</span></div></div></div></div><div class="subsection-title"><span class="subtext">BERE</span></div><div class="pizza-grid"><div class="card" id="p-ursus-nbsp" data-section="Băuturi"><div class="card-name">Ursus&nbsp;<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">330ml</span><span class="price-val"><sup>lei</sup>12</span></div></div></div><div class="card" id="p-ursus" data-section="Băuturi"><div class="card-name">Ursus<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">500ml</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" id="p-peroni" data-section="Băuturi"><div class="card-name">Peroni<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">330ml</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" id="p-peroni" data-section="Băuturi"><div class="card-name">Peroni<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">500ml</span><span class="price-val"><sup>lei</sup>20</span></div></div></div><div class="card" id="p-ursus-cooler-lemon" data-section="Băuturi"><div class="card-name">Ursus Cooler Lemon<span class="alg"><span>1</span></span>
 
-</div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">330ml</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Ursus Cooler Zmeură și Mure<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">330ml</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Ursus Nefiltrată de Grâu<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">330ml</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Kozel&nbsp;<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">500ml</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Ursus Black<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">330ml</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Timișoreana<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">500ml</span><span class="price-val"><sup>lei</sup>13</span></div></div></div><div class="card" data-section="Băuturi"><div class="card-name">Ursus Fără Alcool<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">500ml</span><span class="price-val"><sup>lei</sup>12</span></div></div></div></div></section>
+</div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">330ml</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" id="p-ursus-cooler-zmeura-si-mure" data-section="Băuturi"><div class="card-name">Ursus Cooler Zmeură și Mure<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">330ml</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" id="p-ursus-nefiltrata-de-grau" data-section="Băuturi"><div class="card-name">Ursus Nefiltrată de Grâu<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">330ml</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" id="p-kozel-nbsp" data-section="Băuturi"><div class="card-name">Kozel&nbsp;<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">500ml</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" id="p-ursus-black" data-section="Băuturi"><div class="card-name">Ursus Black<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">330ml</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" id="p-timisoreana" data-section="Băuturi"><div class="card-name">Timișoreana<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">500ml</span><span class="price-val"><sup>lei</sup>13</span></div></div></div><div class="card" id="p-ursus-fara-alcool" data-section="Băuturi"><div class="card-name">Ursus Fără Alcool<span class="alg"><span>1</span></span></div><p class="card-ing">Ingrediente...</p><div class="card-prices"><div class="price-item"><span class="price-label">Porție</span><span class="price-weight">500ml</span><span class="price-val"><sup>lei</sup>12</span></div></div></div></div></section>
 <footer class="contact">
   <span class="contact-label">Contactează-ne</span>
   <div class="contact-line">
@@ -1315,18 +1642,24 @@ body.editmode .menu-section.compact .addprodbtn {
     <span class="contact-text">0751 380 867</span>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-    <span class="contact-text">@millesaporri</span>
+    <a href="https://www.instagram.com/millesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+    <span class="contact-text">@millesaporri</span></a>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-    <span class="contact-text">Pizzeria mille saporri</span>
+    <a href="https://www.facebook.com/pizzeriamillesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+    <span class="contact-text">Pizzeria mille saporri</span></a>
+  </div>
+  <div class="contact-line">
+    <a href="https://maps.app.goo.gl/WQi1W9qjx2qVkQv48" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+      <span class="contact-text">Vezi pe hartă</span>
+    </a>
   </div>
   <p class="tagline">Preparate cu pasiune · Gust autentic italian</p>
 </footer>
-</div><div id="cafele" class="tab-content"><section class="menu-section"><div class="section-header"><h2>Cafele</h2><p><br></p></div><div class="section-banner" style="height: 400px;"><img class="banner-img" src="https://i.imgur.com/YsOEHyF.jpg" alt="Cafele" data-epid="Cafele" style="object-position: 47% 69%; transform: scale(1); transform-origin: 47% 69%; height: 420px;"></div><div class="subsection-title"><span class="subtext"><br></span></div><div class="pizza-grid"><div class="card" data-section="Cafea"><div class="card-name">Espresso<span class="alg"></span>
+</div><div id="cafele" class="tab-content"><section class="menu-section"><div class="section-header"><h2>Cafele</h2><p><br></p></div><div class="section-banner" style="height: 400px;"><img class="banner-img" src="https://i.imgur.com/YsOEHyF.jpg" alt="Cafele" data-epid="Cafele" style="object-position: 47% 69%; transform: scale(1); transform-origin: 47% 69%; height: 420px;"></div><div class="subsection-title"><span class="subtext"><br></span></div><div class="pizza-grid"><div class="card" id="p-espresso" data-section="Cafea"><div class="card-name">Espresso<span class="alg"></span>
 
-</div><p class="card-ing" data-has-text="1">Cafea scurtă</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">30ml</span><span class="price-val"><sup>lei</sup>9</span></div></div></div><div class="card" data-section="Cafea"><div class="card-name">Espresso Dublu<span class="alg"></span></div><p class="card-ing"><br></p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">60ml</span><span class="price-val"><sup>lei</sup>13</span></div></div></div><div class="card" data-section="Cafea"><div class="card-name">Macchiato<span class="alg"><span>7</span></span></div><p class="card-ing" data-has-text="1">Espresso cu spumă de lapte</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">40ml</span><span class="price-val"><sup>lei</sup>10</span></div></div></div><div class="card" data-section="Cafea"><div class="card-name">Ristretto<span class="alg"></span></div><p class="card-ing"><br></p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">20ml</span><span class="price-val"><sup>lei</sup>9</span></div></div></div><div class="card" data-section="Cafea"><div class="card-name">Cappuccino<span class="alg"><span>7</span></span></div><p class="card-ing" data-has-text="1">Espresso cu lapte spumant</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">150ml</span><span class="price-val"><sup>lei</sup>13</span></div></div></div><div class="card" data-section="Cafea"><div class="card-name">Latte<span class="alg"><span>7</span></span></div><p class="card-ing" data-has-text="1">Espresso dublu cu lapte cald si spumă</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">250ml</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" data-section="Cafea"><div class="card-name">Americano<span class="alg"></span></div><p class="card-ing" data-has-text="1">Espresso lung</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">130ml</span><span class="price-val"><sup>lei</sup>10</span></div></div></div><div class="card" data-section="Cafea"><div class="card-name">Irish Coffee<span class="alg"><span>1</span><span>7</span></span></div><p class="card-ing" data-has-text="1"><em>Espresso, whiskey, frișcă</em></p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">90ml</span><span class="price-val"><sup>lei</sup>20</span></div></div></div><div class="card" data-section="Cafea"><div class="card-name">Frappé<span class="alg"><span>3</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Espresso, înghețată de vanilie, lapte, frișcă, topping ciocolată</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">350ml</span><span class="price-val"><sup>lei</sup>18</span></div></div></div></div><div class="pizza-grid"></div><div class="pizza-grid"></div></section>
+</div><p class="card-ing" data-has-text="1">Cafea scurtă</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">30ml</span><span class="price-val"><sup>lei</sup>9</span></div></div></div><div class="card" id="p-espresso-dublu" data-section="Cafea"><div class="card-name">Espresso Dublu<span class="alg"></span></div><p class="card-ing"><br></p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">60ml</span><span class="price-val"><sup>lei</sup>13</span></div></div></div><div class="card" id="p-macchiato" data-section="Cafea"><div class="card-name">Macchiato<span class="alg"><span>7</span></span></div><p class="card-ing" data-has-text="1">Espresso cu spumă de lapte</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">40ml</span><span class="price-val"><sup>lei</sup>10</span></div></div></div><div class="card" id="p-ristretto" data-section="Cafea"><div class="card-name">Ristretto<span class="alg"></span></div><p class="card-ing"><br></p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">20ml</span><span class="price-val"><sup>lei</sup>9</span></div></div></div><div class="card" id="p-cappuccino" data-section="Cafea"><div class="card-name">Cappuccino<span class="alg"><span>7</span></span></div><p class="card-ing" data-has-text="1">Espresso cu lapte spumant</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">150ml</span><span class="price-val"><sup>lei</sup>13</span></div></div></div><div class="card" id="p-latte" data-section="Cafea"><div class="card-name">Latte<span class="alg"><span>7</span></span></div><p class="card-ing" data-has-text="1">Espresso dublu cu lapte cald si spumă</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">250ml</span><span class="price-val"><sup>lei</sup>15</span></div></div></div><div class="card" id="p-americano" data-section="Cafea"><div class="card-name">Americano<span class="alg"></span></div><p class="card-ing" data-has-text="1">Espresso lung</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">130ml</span><span class="price-val"><sup>lei</sup>10</span></div></div></div><div class="card" id="p-irish-coffee" data-section="Cafea"><div class="card-name">Irish Coffee<span class="alg"><span>1</span><span>7</span></span></div><p class="card-ing" data-has-text="1"><em>Espresso, whiskey, frișcă</em></p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">90ml</span><span class="price-val"><sup>lei</sup>20</span></div></div></div><div class="card" id="p-frappe" data-section="Cafea"><div class="card-name">Frappé<span class="alg"><span>3</span><span>7</span></span></div><p class="card-ing" data-has-text="1">Espresso, înghețată de vanilie, lapte, frișcă, topping ciocolată</p><div class="card-prices"><div class="price-item"><span class="price-label"><br></span><span class="price-weight">350ml</span><span class="price-val"><sup>lei</sup>18</span></div></div></div></div><div class="pizza-grid"></div><div class="pizza-grid"></div></section>
 <footer class="contact">
   <span class="contact-label">Contactează-ne</span>
   <div class="contact-line">
@@ -1334,12 +1667,18 @@ body.editmode .menu-section.compact .addprodbtn {
     <span class="contact-text">0751 380 867</span>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-    <span class="contact-text">@millesaporri</span>
+    <a href="https://www.instagram.com/millesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+    <span class="contact-text">@millesaporri</span></a>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-    <span class="contact-text">Pizzeria mille saporri</span>
+    <a href="https://www.facebook.com/pizzeriamillesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+    <span class="contact-text">Pizzeria mille saporri</span></a>
+  </div>
+  <div class="contact-line">
+    <a href="https://maps.app.goo.gl/WQi1W9qjx2qVkQv48" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+      <span class="contact-text">Vezi pe hartă</span>
+    </a>
   </div>
   <p class="tagline">Preparate cu pasiune · Gust autentic italian</p>
 </footer>
@@ -1398,12 +1737,18 @@ body.editmode .menu-section.compact .addprodbtn {
     <span class="contact-text">0751 380 867</span>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-    <span class="contact-text">@millesaporri</span>
+    <a href="https://www.instagram.com/millesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+    <span class="contact-text">@millesaporri</span></a>
   </div>
   <div class="contact-line">
-    <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
-    <span class="contact-text">Pizzeria mille saporri</span>
+    <a href="https://www.facebook.com/pizzeriamillesaporri" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+    <span class="contact-text">Pizzeria mille saporri</span></a>
+  </div>
+  <div class="contact-line">
+    <a href="https://maps.app.goo.gl/WQi1W9qjx2qVkQv48" target="_blank" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+      <span class="contact-text">Vezi pe hartă</span>
+    </a>
   </div>
   <p class="tagline">Preparate cu pasiune · Gust autentic italian</p>
 </footer>
@@ -1548,6 +1893,238 @@ body.editmode .menu-section.compact .addprodbtn {
     }, { threshold: 0.8 });
     document.querySelectorAll('.new-circle').forEach(function(el) { obs.observe(el); });
   }
+
+  // Scroll hint pe nav
+  var navEl = document.querySelector('nav');
+  var hint = document.createElement('div');
+  hint.className = 'nav-scroll-hint';
+  hint.innerHTML = '›';
+  var navWrap = document.querySelector('.nav-wrap');
+  if (navWrap) {
+    navWrap.style.position = 'relative';
+    navWrap.appendChild(hint);
+    setTimeout(function() { hint.classList.add('visible'); }, 800);
+    navEl && navEl.addEventListener('scroll', function() {
+      hint.style.display = 'none';
+    }, { once: true });
+  }
+
+
+  // ── HOME SCREEN ──
+  document.querySelectorAll('.home-cat').forEach(function(cat) {
+    cat.addEventListener('click', function() {
+      var homeScreen = document.getElementById('home-screen');
+      var tabId = cat.dataset.goto;
+      var radio = document.getElementById(tabId);
+      if (radio) radio.click();
+      if (homeScreen) {
+        homeScreen.classList.add('hidden');
+        setTimeout(function() { homeScreen.style.display = 'none'; }, 300);
+      }
+      window.scrollTo(0, 0);
+    });
+  });
+
+
+  // ── SCROLL ACTIVE NAV BTN INTO CENTER ──
+  function scrollActiveNav() {
+    var nav = document.getElementById('main-nav');
+    if (!nav) return;
+    var active = nav.querySelector('label.navbtn.active') ||
+                 Array.from(nav.querySelectorAll('label.navbtn')).find(function(l) {
+                   var forId = l.getAttribute('for');
+                   var radio = document.getElementById(forId);
+                   return radio && radio.checked;
+                 });
+    if (!active) return;
+    var btnLeft = active.offsetLeft;
+    var btnWidth = active.offsetWidth;
+    var navWidth = nav.offsetWidth;
+    nav.scrollTo({ left: btnLeft - (navWidth / 2) + (btnWidth / 2), behavior: 'smooth' });
+  }
+
+  // Scroll on radio change
+  document.querySelectorAll('.tabradio').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      setTimeout(scrollActiveNav, 50);
+    });
+  });
+
+  // Also scroll when home cat clicked
+  var origHomeCats = document.querySelectorAll('.home-cat');
+  origHomeCats.forEach(function(cat) {
+    cat.addEventListener('click', function() {
+      setTimeout(scrollActiveNav, 100);
+    });
+  });
+
+
+  // ── FORCE ACTIVE NAV PILL VIA JS (inline style, highest priority) ──
+  function updateActiveNavPill() {
+    var radios = document.querySelectorAll('.tabradio');
+    var labels = document.querySelectorAll('nav label.navbtn');
+    
+    // Reset all
+    labels.forEach(function(l) {
+      l.style.setProperty('background', 'transparent', 'important');
+      l.style.setProperty('color', 'rgba(253,246,227,0.6)', 'important');
+      l.style.setProperty('border-color', 'rgba(212,160,23,0.3)', 'important');
+    });
+    
+    // Find checked radio and highlight its label
+    radios.forEach(function(radio) {
+      if (radio.checked) {
+        var label = document.querySelector('nav label[for="' + radio.id + '"]');
+        if (label) {
+          label.style.setProperty('background', '#C0181A', 'important');
+          label.style.setProperty('color', '#ffffff', 'important');
+          label.style.setProperty('border-color', '#C0181A', 'important');
+        }
+      }
+    });
+  }
+
+  // Run on load
+  updateActiveNavPill();
+
+  // Run on every radio change
+  document.querySelectorAll('.tabradio').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      setTimeout(updateActiveNavPill, 10);
+    });
+  });
+
+  // Also run when home cat clicked
+  document.querySelectorAll('.home-cat').forEach(function(cat) {
+    cat.addEventListener('click', function() {
+      setTimeout(updateActiveNavPill, 150);
+    });
+  });
+
+
+  // ── FIX FILTER BAR TOP DINAMIC ──
+  function fixFilterBarTop() {
+    var nav = document.getElementById('main-nav');
+    var filterBar = document.querySelector('.filter-bar-wrap');
+    if (!nav || !filterBar) return;
+    var navH = nav.offsetHeight;
+    var filterH = filterBar.offsetHeight;
+    filterBar.style.setProperty('top', navH + 'px', 'important');
+
+  }
+  setTimeout(fixFilterBarTop, 200);
+  window.addEventListener('resize', fixFilterBarTop);
+
+
+  // ── SCROLL TO TOP LA SCHIMBARE CATEGORIE ──
+  document.querySelectorAll('.tabradio').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // ── BACK TO HOME BTN ──
+  var backBtn = document.createElement('div');
+  backBtn.id = 'back-to-home';
+  backBtn.innerHTML = '⌂';
+  backBtn.title = 'Înapoi la categorii';
+  document.body.appendChild(backBtn);
+
+  backBtn.addEventListener('click', function() {
+    var hs = document.getElementById('home-screen');
+    if (hs) {
+      hs.style.display = 'block';
+      hs.style.opacity = '0';
+      setTimeout(function() { hs.style.opacity = '1'; hs.style.transition = 'opacity .3s'; hs.classList.remove('hidden'); }, 10);
+      window.scrollTo(0, 0);
+    }
+  });
+
+  setTimeout(fixFilterBarTop, 200);
+
+
+
+
+  // ── POPUP INCHIS ──
+  function isRestaurantOpen() {
+    var d = new Date(), day = d.getDay(), h = d.getHours() + d.getMinutes()/60;
+    if (day === 1 || day === 2) return false;
+    return h >= 16 && h < 22;
+  }
+
+  function showClosedPopup() {
+    if (isRestaurantOpen()) return;
+    if (document.getElementById('closed-popup')) return;
+    var ov = document.createElement('div');
+    ov.id = 'popup-overlay'; ov.className = 'show';
+    document.body.appendChild(ov);
+    var pop = document.createElement('div');
+    pop.id = 'closed-popup'; pop.className = 'show';
+    pop.innerHTML =
+      '<div class="popup-clock">🕐</div>' +
+      '<div class="popup-title">Momentan suntem închiși</div>' +
+      '<div class="popup-text">Ne găsești din nou la 16:00.<br>Până atunci, poți răsfoi meniul!</div>' +
+      '<div class="popup-schedule">' +
+        '<div class="closed-day">Luni — Închis</div>' +
+        '<div class="closed-day">Marți — Închis</div>' +
+        '<div>Miercuri – Duminică · 16:00–22:00</div>' +
+      '</div>' +
+      '<div class="popup-progress"><div class="popup-progress-bar"></div></div>';
+    document.body.appendChild(pop);
+    var t = setTimeout(function() {
+      pop.style.transition = 'opacity .3s';
+      pop.style.opacity = '0';
+      ov.style.transition = 'opacity .3s';
+      ov.style.opacity = '0';
+      setTimeout(function() { pop.remove(); ov.remove(); }, 300);
+    }, 10000);
+    ov.addEventListener('click', function() {
+      clearTimeout(t); pop.remove(); ov.remove();
+    });
+  }
+
+  document.querySelectorAll('.home-cat').forEach(function(cat) {
+    cat.addEventListener('click', function() {
+      setTimeout(showClosedPopup, 600);
+    });
+  });
+
+
+
+
 })();
 </script>
+<style>
+/* FINAL OVERRIDE — nav active pill */
+nav label.navbtn {
+  border-bottom: 1px solid rgba(212,160,23,.3) !important;
+  border-radius: 20px !important;
+  background: transparent !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+#tab-pizza-clasica:checked ~ #main-nav label[for="tab-pizza-clasica"],
+#tab-pizza-casa:checked ~ #main-nav label[for="tab-pizza-casa"],
+#tab-pizza-speciala:checked ~ #main-nav label[for="tab-pizza-speciala"],
+#tab-categorie-noua-3:checked ~ #main-nav label[for="tab-categorie-noua-3"],
+#tab-paste:checked ~ #main-nav label[for="tab-paste"],
+#tab-paste-forno:checked ~ #main-nav label[for="tab-paste-forno"],
+#tab-supe-salate:checked ~ #main-nav label[for="tab-supe-salate"],
+#tab-fructe-mare:checked ~ #main-nav label[for="tab-fructe-mare"],
+#tab-crispy:checked ~ #main-nav label[for="tab-crispy"],
+#tab-desert:checked ~ #main-nav label[for="tab-desert"],
+#tab-extras:checked ~ #main-nav label[for="tab-extras"],
+#tab-categorie-noua:checked ~ #main-nav label[for="tab-categorie-noua"],
+#tab-categorie-noua-2:checked ~ #main-nav label[for="tab-categorie-noua-2"],
+#tab-categorie-noua-4:checked ~ #main-nav label[for="tab-categorie-noua-4"],
+#tab-cafele:checked ~ #main-nav label[for="tab-cafele"],
+#tab-alergeni:checked ~ #main-nav label[for="tab-alergeni"],
+#tab-nutri:checked ~ #main-nav label[for="tab-nutri"] {
+  background: #C0181A !important;
+  color: #fff !important;
+  border-color: #C0181A !important;
+  border-radius: 20px !important;
+  border-bottom: 1px solid #C0181A !important;
+}
+</style>
+
 </body></html>
