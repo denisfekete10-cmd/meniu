@@ -2016,12 +2016,24 @@ nav label.navbtn:hover {
   window.addEventListener('resize', fixFilterBarTop);
 
 
-  // ── SCROLL TO TOP LA SCHIMBARE CATEGORIE ──
+
+  // ── SCROLL TO SECTION HEADER LA SCHIMBARE CATEGORIE ──
   document.querySelectorAll('.tabradio').forEach(function(radio) {
     radio.addEventListener('change', function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      var tabId = radio.id.replace('tab-', '');
+      setTimeout(function() {
+        var section = document.getElementById(tabId);
+        if (!section) return;
+        var header = section.querySelector('.section-header');
+        if (!header) return;
+        var navH = document.getElementById('main-nav') ? document.getElementById('main-nav').offsetHeight : 0;
+        var filterH = document.querySelector('.filter-bar-wrap') ? document.querySelector('.filter-bar-wrap').offsetHeight : 0;
+        var offset = header.getBoundingClientRect().top + window.scrollY - navH - filterH - 10;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }, 50);
     });
   });
+
 
   // ── BACK TO HOME BTN ──
   var backBtn = document.createElement('div');
