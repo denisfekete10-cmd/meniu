@@ -2017,20 +2017,53 @@ nav label.navbtn:hover {
 
 
 
-  // ── SCROLL TO SECTION HEADER LA SCHIMBARE CATEGORIE ──
+  // ── SCROLL TO SECTION HEADER ──
+  function scrollToSectionHeader() {
+    var navH = document.getElementById('main-nav') ? document.getElementById('main-nav').offsetHeight : 0;
+    var filterH = document.querySelector('.filter-bar-wrap') ? document.querySelector('.filter-bar-wrap').offsetHeight : 0;
+
+    // Find active tab-content
+    var radios = document.querySelectorAll('.tabradio');
+    var activeTabId = null;
+    radios.forEach(function(r) { if (r.checked) activeTabId = r.id.replace('tab-', ''); });
+
+    if (activeTabId) {
+      var section = document.getElementById(activeTabId);
+      if (section) {
+        var header = section.querySelector('.section-header');
+        if (header) {
+          var offset = header.getBoundingClientRect().top + window.scrollY - navH - filterH - 10;
+          window.scrollTo({ top: offset, behavior: 'smooth' });
+          return;
+        }
+      }
+    }
+    // Fallback scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Scroll on radio change
   document.querySelectorAll('.tabradio').forEach(function(radio) {
     radio.addEventListener('change', function() {
-      var tabId = radio.id.replace('tab-', '');
+      setTimeout(scrollToSectionHeader, 60);
+    });
+  });
+
+  // Scroll when home cat clicked
+  document.querySelectorAll('.home-cat').forEach(function(cat) {
+    cat.addEventListener('click', function() {
+      setTimeout(scrollToSectionHeader, 350);
+    });
+  });
+
+  // Scroll when filter buttons clicked — scroll to top of filter results
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
       setTimeout(function() {
-        var section = document.getElementById(tabId);
-        if (!section) return;
-        var header = section.querySelector('.section-header');
-        if (!header) return;
         var navH = document.getElementById('main-nav') ? document.getElementById('main-nav').offsetHeight : 0;
         var filterH = document.querySelector('.filter-bar-wrap') ? document.querySelector('.filter-bar-wrap').offsetHeight : 0;
-        var offset = header.getBoundingClientRect().top + window.scrollY - navH - filterH - 10;
-        window.scrollTo({ top: offset, behavior: 'smooth' });
-      }, 50);
+        window.scrollTo({ top: navH + filterH, behavior: 'smooth' });
+      }, 100);
     });
   });
 
