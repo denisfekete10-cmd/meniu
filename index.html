@@ -559,6 +559,114 @@ nav label.navbtn:hover {
   100% { box-shadow: 0 3px 10px rgba(192,24,26,.4), 0 0 0 0 rgba(192,24,26,0); transform: scale(1); }
 }
 .new-circle.glow-anim { animation: circleGlow 1.6s ease-out forwards; }
+
+
+/* ── Modal produs ── */
+.prod-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 1000;
+  align-items: flex-end;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+}
+.prod-modal-overlay.active {
+  display: flex;
+}
+.prod-modal {
+  background: var(--cream, #fdf6e3);
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  max-width: 540px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+  position: relative;
+}
+.prod-modal-overlay.active .prod-modal {
+  transform: translateY(0);
+}
+.prod-modal-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+  display: block;
+}
+.prod-modal-body {
+  padding: 20px 20px 32px;
+}
+.prod-modal-close {
+  position: absolute;
+  top: 12px; right: 14px;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.35);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10;
+}
+.prod-modal-close-bottom {
+  position: absolute;
+  top: 12px; right: 14px;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(139,0,0,0.12);
+  border: none;
+  color: var(--crimson, #C0181A);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10;
+}
+.prod-modal-name {
+  font-family: var(--font-title, serif);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--char, #1a1a1a);
+  margin-bottom: 6px;
+  padding-right: 36px;
+}
+.prod-modal-ing {
+  font-family: var(--font-accent, serif);
+  font-style: italic;
+  font-size: .95rem;
+  color: var(--muted, #666);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+.prod-modal-price {
+  margin-bottom: 14px;
+}
+.prod-modal-alg-title {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted, #888);
+  margin-bottom: 7px;
+}
+.prod-modal-alg-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.prod-modal-alg-tag {
+  background: rgba(192,24,26,.08);
+  border: 1px solid rgba(192,24,26,.2);
+  color: var(--crimson, #C0181A);
+  font-size: .75rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+
 </style>
 <style id="dynamic-nav-css">
 #tab-categorie-noua:checked ~ #categorie-noua { display:block; }
@@ -636,7 +744,7 @@ nav label.navbtn:hover {
       </div>
       <span class="home-cat-arrow">›</span>
     </div>
-    <div class="home-cat" data-goto="tab-categorie-noua">
+    <div class="home-cat" data-goto="tab-categorie-noua-4">
       <div class="home-cat-icon" style="background:rgba(15,110,86,.1);">🍹</div>
       <div class="home-cat-info">
         <div class="home-cat-name">Băuturi</div>
@@ -2237,6 +2345,111 @@ nav label.navbtn {
       }, 150);
     }
   });
+})();
+</script>
+
+<div class="prod-modal-overlay" id="prodModal">
+  <div class="prod-modal" id="prodModalInner">
+    <button class="prod-modal-close" id="prodModalClose" aria-label="Închide">×</button>
+    <button class="prod-modal-close-bottom" id="prodModalCloseBottom" aria-label="Închide" style="display:none">×</button>
+    <img class="prod-modal-img" id="prodModalImg" src="" alt="" style="display:none">
+    <div class="prod-modal-body">
+      <div class="prod-modal-name" id="prodModalName"></div>
+      <div class="prod-modal-ing" id="prodModalIng"></div>
+      <div class="prod-modal-price" id="prodModalPrice"></div>
+      <div id="prodModalAlgWrap" style="display:none">
+        <div class="prod-modal-alg-title">Alergeni</div>
+        <div class="prod-modal-alg-list" id="prodModalAlg"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  var ALERGENI = {
+    '1':'Gluten','2':'Crustacee','3':'Ouă','4':'Pește',
+    '5':'Arahide','6':'Soia','7':'Lapte','8':'Nuci',
+    '9':'Țelină','10':'Muștar','11':'Susan','12':'Dioxid de sulf',
+    '13':'Lupin','14':'Moluște'
+  };
+  var overlay  = document.getElementById('prodModal');
+  var img      = document.getElementById('prodModalImg');
+  var name     = document.getElementById('prodModalName');
+  var ing      = document.getElementById('prodModalIng');
+  var price    = document.getElementById('prodModalPrice');
+  var algWrap  = document.getElementById('prodModalAlgWrap');
+  var algList  = document.getElementById('prodModalAlg');
+  var btnClose = document.getElementById('prodModalClose');
+  var btnCloseB= document.getElementById('prodModalCloseBottom');
+
+  function openModal(card) {
+    var nameEl = card.querySelector('.card-name');
+    name.textContent = nameEl ? nameEl.childNodes[0].textContent.trim() : '';
+    var ingEl = card.querySelector('.card-ing');
+    ing.textContent = ingEl ? ingEl.textContent.trim() : '';
+    price.innerHTML = '';
+    var priceItems = card.querySelectorAll('.price-item');
+    priceItems.forEach(function(item) {
+      var label  = item.querySelector('.price-label');
+      var weight = item.querySelector('.price-weight');
+      var val    = item.querySelector('.price-val');
+      if (!val || !val.textContent.trim() || val.innerHTML.includes('<br>')) return;
+      var row = document.createElement('div');
+      row.style.cssText = 'display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;';
+      var left = document.createElement('span');
+      left.style.cssText = 'font-size:.85rem;color:var(--muted,#888);';
+      var labelTxt  = label  ? label.textContent.trim()  : '';
+      var weightTxt = weight ? weight.textContent.trim() : '';
+      left.textContent = [labelTxt, weightTxt].filter(Boolean).join(' · ');
+      var right = document.createElement('span');
+      right.style.cssText = 'font-size:1.05rem;font-weight:700;color:var(--crimson,#C0181A);';
+      right.innerHTML = val.innerHTML;
+      row.appendChild(left); row.appendChild(right);
+      price.appendChild(row);
+    });
+    var algNums = [];
+    if (nameEl) nameEl.querySelectorAll('.alg span').forEach(function(s) { algNums.push(s.textContent.trim()); });
+    algList.innerHTML = '';
+    if (algNums.length > 0) {
+      algNums.forEach(function(n) {
+        if (ALERGENI[n]) {
+          var tag = document.createElement('span');
+          tag.className = 'prod-modal-alg-tag';
+          tag.textContent = n + ' – ' + ALERGENI[n];
+          algList.appendChild(tag);
+        }
+      });
+      algWrap.style.display = 'block';
+    } else {
+      algWrap.style.display = 'none';
+    }
+    var imgSrc = card.getAttribute('data-img') || '';
+    if (imgSrc) {
+      img.src = imgSrc; img.style.display = 'block';
+      btnClose.style.display = 'flex'; btnCloseB.style.display = 'none';
+    } else {
+      img.style.display = 'none';
+      btnClose.style.display = 'none'; btnCloseB.style.display = 'flex';
+    }
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('click', function(e) {
+    var card = e.target.closest('.card');
+    if (card && !e.target.closest('.new-circle') && !e.target.closest('.prod-badges')) {
+      openModal(card);
+    }
+  });
+  btnClose.addEventListener('click', closeModal);
+  btnCloseB.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
 })();
 </script>
 </body></html>
